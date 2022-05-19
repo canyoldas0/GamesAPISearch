@@ -36,7 +36,7 @@ class BaseNetworkManager: NetworkManagerProtocol {
         
     }
     
-    private func dataTaskHandler<R: Codable>(_ data: Data?, _ response: URLResponse?, _ error: Error?, completion: @escaping (Result<R, Error>) -> Void) {
+    private func dataTaskHandler<R: Codable>(_ data: Data?, _ response: URLResponse?, _ error: Error?, completion: @escaping (Result<R, ErrorResponse>) -> Void) {
         
         if error != nil {
             completion(.failure(

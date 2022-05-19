@@ -11,6 +11,11 @@ import CYBase
 final class SearchVM {
     
     var viewState: ViewStateBlock?
+    var networkManager: SearchNetworkProtocol
+    
+    init(networkManager: SearchNetworkProtocol = SearchAPI()) {
+        self.networkManager = networkManager
+    }
     
     func listenViewState(with completion: @escaping ViewStateBlock) {
         viewState = completion
@@ -18,6 +23,16 @@ final class SearchVM {
     
     func fetchData() {
         viewState?(.loading)
+        
+        
+        networkManager.searchGames(with: GameListRequest(page_size: 10, page: 1)) { [weak self] response in
+            switch response {
+            case .success(let _):
+                break
+            case .failure(let error):
+                self?.viewState?(.failure(error))
+            }
+        }
     }
     
     

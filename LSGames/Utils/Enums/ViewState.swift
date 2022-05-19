@@ -11,6 +11,6 @@ enum ViewState {
     
     case loading
     case done
-    case failure
+    case failure(Error)
     
 }
