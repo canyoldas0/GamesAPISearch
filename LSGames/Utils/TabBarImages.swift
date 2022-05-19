@@ -13,12 +13,12 @@ enum TabBarImages: String, CYValueProtocol {
     typealias Value = UIImage
     
     var value: UIImage {
-        return UIImage(imageLiteralResourceName: rawValue)
+        return UIImage(systemName: rawValue)!
     }
     
-    case home = "home"
-    case favorite = "favorite"
-    case homeSelected = "homeSelected"
-    case favoriteSelected = "favoriteSelected"
+    case search = "gamecontroller"
+    case favorite = "star"
+    case searchSelected = "gamecontroller.fill"
+    case favoriteSelected = "star.fill"
     
 }

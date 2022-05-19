@@ -13,8 +13,12 @@ class SearchViewBuilder {
         
         let searchVM = SearchVM()
         let searchVC = SearchVC(viewModel: searchVM)
-        
+        searchVC.title = "Games"
+        searchVC.tabBarItem.image = TabBarImages.search.value
+        searchVC.tabBarItem.selectedImage = TabBarImages.searchSelected.value
         let navigationVC = UINavigationController(rootViewController: searchVC)
+        navigationVC.navigationBar.prefersLargeTitles = true
+        navigationVC.view.backgroundColor = .systemBackground
         return navigationVC
     }
 }

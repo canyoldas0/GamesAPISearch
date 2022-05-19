@@ -13,11 +13,12 @@ class ListView: BaseView {
     weak var delegate: ItemProviderProtocol?
     
     private lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = CustomFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 15
-        layout.minimumInteritemSpacing = 15
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 136)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         let temp = UICollectionView(frame: .zero, collectionViewLayout: layout)
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.delegate = self
@@ -67,9 +68,25 @@ extension ListView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = ListCollectionViewCell.dequeue(fromCollectionView: collectionView, atIndexPath: indexPath)
-        return cell
+        if isLoadingCell(for: indexPath) {
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: LoadingCellView.identifier,
+                for: indexPath) as? LoadingCellView else { fatalError() }
+            return cell
+        } else {
+//            guard let data = delegate?.askData(at: indexPath.row) else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionViewCell.identifier, for: indexPath) as? ListCollectionViewCell else { return UICollectionViewCell() }
+            let mockData = ListCollectionViewCellData(imageUrl: "https://media.rawg.io/media/games/ffe/ffed87105b14f5beff72ff44a7793fd5.jpg",
+                                                      title: "GTA V", metaScore: "85", categories: "Action")
+            cell.setData(with: mockData)
+            return cell
+        }
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if isLoadingCell(for: indexPath) {
+            delegate?.getMoreData()
+        }
+    }
+
 }
