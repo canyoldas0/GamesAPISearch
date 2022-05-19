@@ -11,4 +11,8 @@ import CYBase
 class FavoritesVC: CYViewController<FavoritesVM> {
     
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+    }
 }

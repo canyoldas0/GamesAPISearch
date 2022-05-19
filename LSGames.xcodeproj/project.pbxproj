@@ -104,6 +104,7 @@
 		1E42A9222836A66900D7553F /* LSGames */ = {
 			isa = PBXGroup;
 			children = (
+				1E42A9382836A6F600D7553F /* Scene */,
 				1E42A9602836B0DE00D7553F /* UIComponents */,
 				1E42A9562836ADB800D7553F /* Utils */,
 				1E42A9372836A6ED00D7553F /* Application */,
@@ -182,7 +183,6 @@
 				1E42A95A2836B04D00D7553F /* TabBarImages.swift */,
 				1E42A95C2836B06600D7553F /* AppTheme.swift */,
 				1E42A95E2836B08F00D7553F /* TypeAliases.swift */,
-				1E42A9382836A6F600D7553F /* Scene */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
