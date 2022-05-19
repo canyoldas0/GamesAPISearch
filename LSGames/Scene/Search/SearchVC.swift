@@ -10,5 +10,8 @@ import CYBase
 
 class SearchVC: CYViewController<SearchVM> {
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .blue
+    }
 }
