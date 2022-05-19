@@ -14,22 +14,16 @@ enum AppTheme: CYValueProtocol {
     var value: UIColor {
         switch self {
             
-        case .primary:
-            return UIColor(red: 0.01, green: 0.09, blue: 0.15, alpha: 1.00)
-        case .secondary:
-            return UIColor(red: 0.00, green: 0.79, blue: 0.56, alpha: 1.00)
         case .white:
             return .white
         case .black:
             return .black
-        case .starred:
-            return UIColor(red: 0.99, green: 0.80, blue: 0.06, alpha: 1.00)
+        case .scoreRed:
+            return UIColor(red: 0.85, green: 0.00, blue: 0.00, alpha: 1.00)
         }
     }
     
-    case primary
-    case secondary
     case white
     case black
-    case starred
+    case scoreRed
 }

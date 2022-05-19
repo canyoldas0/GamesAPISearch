@@ -27,6 +27,12 @@
 		1E42A95B2836B04D00D7553F /* TabBarImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A95A2836B04D00D7553F /* TabBarImages.swift */; };
 		1E42A95D2836B06600D7553F /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A95C2836B06600D7553F /* AppTheme.swift */; };
 		1E42A95F2836B08F00D7553F /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A95E2836B08F00D7553F /* TypeAliases.swift */; };
+		1E42A9662836B33900D7553F /* ListCollectionViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9652836B33900D7553F /* ListCollectionViewCellData.swift */; };
+		1E42A9692836B46400D7553F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1E42A9682836B46400D7553F /* Kingfisher */; };
+		1E42A96C2836B47500D7553F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1E42A96B2836B47500D7553F /* SnapKit */; };
+		1E42A96E2836B4CA00D7553F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A96D2836B4CA00D7553F /* ListView.swift */; };
+		1E42A9732836B61700D7553F /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9712836B61700D7553F /* ListCollectionViewCell.swift */; };
+		1E42A9742836B61700D7553F /* ListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E42A9722836B61700D7553F /* ListCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +57,10 @@
 		1E42A95A2836B04D00D7553F /* TabBarImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarImages.swift; sourceTree = "<group>"; };
 		1E42A95C2836B06600D7553F /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		1E42A95E2836B08F00D7553F /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
+		1E42A9652836B33900D7553F /* ListCollectionViewCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCellData.swift; sourceTree = "<group>"; };
+		1E42A96D2836B4CA00D7553F /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		1E42A9712836B61700D7553F /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
+		1E42A9722836B61700D7553F /* ListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E42A96C2836B47500D7553F /* SnapKit in Frameworks */,
+				1E42A9692836B46400D7553F /* Kingfisher in Frameworks */,
 				1E42A9442836A89500D7553F /* CYBase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +96,7 @@
 		1E42A9222836A66900D7553F /* LSGames */ = {
 			isa = PBXGroup;
 			children = (
+				1E42A9602836B0DE00D7553F /* UIComponents */,
 				1E42A9562836ADB800D7553F /* Utils */,
 				1E42A9382836A6F600D7553F /* Scene */,
 				1E42A9372836A6ED00D7553F /* Application */,
@@ -156,6 +169,7 @@
 		1E42A9562836ADB800D7553F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				1E42A9752836BAFC00D7553F /* Extensions */,
 				1E42A9572836AE1D00D7553F /* Enums */,
 				1E42A95A2836B04D00D7553F /* TabBarImages.swift */,
 				1E42A95C2836B06600D7553F /* AppTheme.swift */,
@@ -170,6 +184,40 @@
 				1E42A9582836AE2100D7553F /* ViewState.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		1E42A9602836B0DE00D7553F /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				1E42A9612836B2BE00D7553F /* ListCollectionView */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		1E42A9612836B2BE00D7553F /* ListCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				1E42A9642836B30500D7553F /* Cell */,
+				1E42A96D2836B4CA00D7553F /* ListView.swift */,
+			);
+			path = ListCollectionView;
+			sourceTree = "<group>";
+		};
+		1E42A9642836B30500D7553F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1E42A9652836B33900D7553F /* ListCollectionViewCellData.swift */,
+				1E42A9712836B61700D7553F /* ListCollectionViewCell.swift */,
+				1E42A9722836B61700D7553F /* ListCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		1E42A9752836BAFC00D7553F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +238,8 @@
 			name = LSGames;
 			packageProductDependencies = (
 				1E42A9432836A89500D7553F /* CYBase */,
+				1E42A9682836B46400D7553F /* Kingfisher */,
+				1E42A96B2836B47500D7553F /* SnapKit */,
 			);
 			productName = LSGames;
 			productReference = 1E42A9202836A66900D7553F /* LSGames.app */;
@@ -221,6 +271,8 @@
 			mainGroup = 1E42A9172836A66900D7553F;
 			packageReferences = (
 				1E42A9422836A89500D7553F /* XCRemoteSwiftPackageReference "CYBase" */,
+				1E42A9672836B46400D7553F /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				1E42A96A2836B47500D7553F /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 1E42A9212836A66900D7553F /* Products */;
 			projectDirPath = "";
@@ -238,6 +290,7 @@
 			files = (
 				1E42A9302836A66900D7553F /* LaunchScreen.storyboard in Resources */,
 				1E42A92D2836A66900D7553F /* Assets.xcassets in Resources */,
+				1E42A9742836B61700D7553F /* ListCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,10 +302,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E42A9512836AA7100D7553F /* FavoritesVC.swift in Sources */,
+				1E42A96E2836B4CA00D7553F /* ListView.swift in Sources */,
 				1E42A9462836A8C000D7553F /* SearchVM.swift in Sources */,
 				1E42A94E2836A98B00D7553F /* DetailViewBuilder.swift in Sources */,
 				1E42A9242836A66900D7553F /* AppDelegate.swift in Sources */,
 				1E42A9412836A87B00D7553F /* SearchVC.swift in Sources */,
+				1E42A9732836B61700D7553F /* ListCollectionViewCell.swift in Sources */,
 				1E42A93D2836A7E500D7553F /* MainTabBarVC.swift in Sources */,
 				1E42A9482836A8FD00D7553F /* SearchViewBuilder.swift in Sources */,
 				1E42A94A2836A96600D7553F /* DetailVC.swift in Sources */,
@@ -265,6 +320,7 @@
 				1E42A95B2836B04D00D7553F /* TabBarImages.swift in Sources */,
 				1E42A9262836A66900D7553F /* SceneDelegate.swift in Sources */,
 				1E42A95F2836B08F00D7553F /* TypeAliases.swift in Sources */,
+				1E42A9662836B33900D7553F /* ListCollectionViewCellData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +538,22 @@
 				kind = branch;
 			};
 		};
+		1E42A9672836B46400D7553F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		1E42A96A2836B47500D7553F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -489,6 +561,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1E42A9422836A89500D7553F /* XCRemoteSwiftPackageReference "CYBase" */;
 			productName = CYBase;
+		};
+		1E42A9682836B46400D7553F /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E42A9672836B46400D7553F /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		1E42A96B2836B47500D7553F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E42A96A2836B47500D7553F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
