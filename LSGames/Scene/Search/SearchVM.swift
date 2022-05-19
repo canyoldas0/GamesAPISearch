@@ -19,7 +19,7 @@ extension SearchVM: ItemProviderProtocol {
     }
     
     func askNumberOfItem(in section: Int) -> Int {
-        return 4
+        return 10
     }
     
     func askData(at index: Int) -> CYDataProtocol? {

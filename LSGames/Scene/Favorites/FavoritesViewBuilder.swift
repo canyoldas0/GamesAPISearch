@@ -17,6 +17,7 @@ class FavoritesViewBuilder {
         favoritesVC.tabBarItem.image = TabBarImages.favorite.value
         favoritesVC.tabBarItem.selectedImage = TabBarImages.favoriteSelected.value
         let navigationVC = UINavigationController(rootViewController: favoritesVC)
+        navigationVC.navigationBar.prefersLargeTitles = true
         return navigationVC
     }
 }

@@ -37,6 +37,7 @@
 		1E42A9792836BB4C00D7553F /* UICollectionViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9782836BB4C00D7553F /* UICollectionViewCell+Extensions.swift */; };
 		1E42A97C2836BC0200D7553F /* ItemProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A97B2836BC0200D7553F /* ItemProviderProtocol.swift */; };
 		1E42A97E2836BC4F00D7553F /* LoadingCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A97D2836BC4F00D7553F /* LoadingCellView.swift */; };
+		1E42A9802836D1D700D7553F /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A97F2836D1D700D7553F /* CustomFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		1E42A9782836BB4C00D7553F /* UICollectionViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		1E42A97B2836BC0200D7553F /* ItemProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemProviderProtocol.swift; sourceTree = "<group>"; };
 		1E42A97D2836BC4F00D7553F /* LoadingCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCellView.swift; sourceTree = "<group>"; };
+		1E42A97F2836D1D700D7553F /* CustomFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 			children = (
 				1E42A9642836B30500D7553F /* Cells */,
 				1E42A96D2836B4CA00D7553F /* ListView.swift */,
+				1E42A97F2836D1D700D7553F /* CustomFlowLayout.swift */,
 			);
 			path = ListCollectionView;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				1E42A9412836A87B00D7553F /* SearchVC.swift in Sources */,
 				1E42A9732836B61700D7553F /* ListCollectionViewCell.swift in Sources */,
 				1E42A93D2836A7E500D7553F /* MainTabBarVC.swift in Sources */,
+				1E42A9802836D1D700D7553F /* CustomFlowLayout.swift in Sources */,
 				1E42A9482836A8FD00D7553F /* SearchViewBuilder.swift in Sources */,
 				1E42A94A2836A96600D7553F /* DetailVC.swift in Sources */,
 				1E42A9592836AE2100D7553F /* ViewState.swift in Sources */,
