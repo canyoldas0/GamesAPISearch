@@ -24,11 +24,11 @@ final class SearchVM {
     func fetchData() {
         viewState?(.loading)
         
-        
         networkManager.searchGames(with: GameListRequest(page_size: 10, page: 1)) { [weak self] response in
             switch response {
-            case .success(let _):
-                break
+            case .success(let data):
+                print(data.results[0])
+                self?.viewState?(.done)
             case .failure(let error):
                 self?.viewState?(.failure(error))
             }

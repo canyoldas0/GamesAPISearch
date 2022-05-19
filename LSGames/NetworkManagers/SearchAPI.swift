@@ -7,15 +7,15 @@
 
 import Foundation
 
-typealias denemeBlock = (Result<String,ErrorResponse>) -> Void // TODO: Dummy Block just to try out networkService
+typealias GameListResponseBlock = (Result<GameListResponse,ErrorResponse>) -> Void // TODO: Dummy Block just to try out networkService
 protocol SearchNetworkProtocol: AnyObject {
     
-    func searchGames(with request: GameListRequest, completion: @escaping denemeBlock)
+    func searchGames(with request: GameListRequest, completion: @escaping GameListResponseBlock)
 }
 
 class SearchAPI: SearchNetworkProtocol {
     
-    func searchGames(with request: GameListRequest, completion: @escaping denemeBlock) {
+    func searchGames(with request: GameListRequest, completion: @escaping GameListResponseBlock) {
         do {
             guard let urlRequest = try? GameListProvider(with: request).returnUrlRequest() else {return}
         BaseNetworkManager.shared.sendRequest(urlRequest: urlRequest, completion: completion)
@@ -27,8 +27,8 @@ class mockAPI: SearchNetworkProtocol {
     
     
     // TODO: MockService for Tests
-    func searchGames(with request: GameListRequest, completion: @escaping denemeBlock) {
-        completion(.success(""))
+    func searchGames(with request: GameListRequest, completion: @escaping GameListResponseBlock) {
+//        completion(.success(""))
     }
     
     
