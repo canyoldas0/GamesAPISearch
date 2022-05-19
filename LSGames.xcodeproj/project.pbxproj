@@ -38,6 +38,10 @@
 		1E42A97C2836BC0200D7553F /* ItemProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A97B2836BC0200D7553F /* ItemProviderProtocol.swift */; };
 		1E42A97E2836BC4F00D7553F /* LoadingCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A97D2836BC4F00D7553F /* LoadingCellView.swift */; };
 		1E42A9802836D1D700D7553F /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A97F2836D1D700D7553F /* CustomFlowLayout.swift */; };
+		1E42A9852836FABE00D7553F /* BaseNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9842836FABE00D7553F /* BaseNetworkManager.swift */; };
+		1E42A9882836FBA200D7553F /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9872836FBA200D7553F /* ErrorResponse.swift */; };
+		1E42A98A2836FBB300D7553F /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9892836FBB300D7553F /* ServerResponse.swift */; };
+		1E42A98C2836FBBF00D7553F /* ApiConnectionErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A98B2836FBBF00D7553F /* ApiConnectionErrorType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +75,10 @@
 		1E42A97B2836BC0200D7553F /* ItemProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemProviderProtocol.swift; sourceTree = "<group>"; };
 		1E42A97D2836BC4F00D7553F /* LoadingCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCellView.swift; sourceTree = "<group>"; };
 		1E42A97F2836D1D700D7553F /* CustomFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFlowLayout.swift; sourceTree = "<group>"; };
+		1E42A9842836FABE00D7553F /* BaseNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkManager.swift; sourceTree = "<group>"; };
+		1E42A9872836FBA200D7553F /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		1E42A9892836FBB300D7553F /* ServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponse.swift; sourceTree = "<group>"; };
+		1E42A98B2836FBBF00D7553F /* ApiConnectionErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConnectionErrorType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,7 @@
 		1E42A9222836A66900D7553F /* LSGames */ = {
 			isa = PBXGroup;
 			children = (
+				1E42A9832836FAAC00D7553F /* BaseNetwork */,
 				1E42A9382836A6F600D7553F /* Scene */,
 				1E42A9602836B0DE00D7553F /* UIComponents */,
 				1E42A9562836ADB800D7553F /* Utils */,
@@ -243,6 +252,25 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		1E42A9832836FAAC00D7553F /* BaseNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				1E42A9862836FB2E00D7553F /* ErrorHandlers */,
+				1E42A9842836FABE00D7553F /* BaseNetworkManager.swift */,
+			);
+			path = BaseNetwork;
+			sourceTree = "<group>";
+		};
+		1E42A9862836FB2E00D7553F /* ErrorHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				1E42A9872836FBA200D7553F /* ErrorResponse.swift */,
+				1E42A9892836FBB300D7553F /* ServerResponse.swift */,
+				1E42A98B2836FBBF00D7553F /* ApiConnectionErrorType.swift */,
+			);
+			path = ErrorHandlers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -325,13 +353,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E42A9512836AA7100D7553F /* FavoritesVC.swift in Sources */,
+				1E42A9882836FBA200D7553F /* ErrorResponse.swift in Sources */,
 				1E42A96E2836B4CA00D7553F /* ListView.swift in Sources */,
 				1E42A9462836A8C000D7553F /* SearchVM.swift in Sources */,
+				1E42A9852836FABE00D7553F /* BaseNetworkManager.swift in Sources */,
 				1E42A94E2836A98B00D7553F /* DetailViewBuilder.swift in Sources */,
 				1E42A9242836A66900D7553F /* AppDelegate.swift in Sources */,
 				1E42A9412836A87B00D7553F /* SearchVC.swift in Sources */,
 				1E42A9732836B61700D7553F /* ListCollectionViewCell.swift in Sources */,
 				1E42A93D2836A7E500D7553F /* MainTabBarVC.swift in Sources */,
+				1E42A98C2836FBBF00D7553F /* ApiConnectionErrorType.swift in Sources */,
 				1E42A9802836D1D700D7553F /* CustomFlowLayout.swift in Sources */,
 				1E42A9482836A8FD00D7553F /* SearchViewBuilder.swift in Sources */,
 				1E42A94A2836A96600D7553F /* DetailVC.swift in Sources */,
@@ -347,6 +378,7 @@
 				1E42A97C2836BC0200D7553F /* ItemProviderProtocol.swift in Sources */,
 				1E42A95B2836B04D00D7553F /* TabBarImages.swift in Sources */,
 				1E42A9262836A66900D7553F /* SceneDelegate.swift in Sources */,
+				1E42A98A2836FBB300D7553F /* ServerResponse.swift in Sources */,
 				1E42A95F2836B08F00D7553F /* TypeAliases.swift in Sources */,
 				1E42A9662836B33900D7553F /* ListCollectionViewCellData.swift in Sources */,
 			);

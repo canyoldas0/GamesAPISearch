@@ -17,7 +17,7 @@ final class SearchVM {
     }
     
     func fetchData() {
-        
+        viewState?(.loading)
     }
     
     

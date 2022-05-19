@@ -9,4 +9,13 @@ import Foundation
 
 final class FavoritesVM {
     
+    var viewState: ViewStateBlock?
+    
+    func listenViewState(with completion: @escaping ViewStateBlock) {
+        viewState = completion
+    }
+    
+    func fetchData() {
+        viewState?(.loading)
+    }
 }

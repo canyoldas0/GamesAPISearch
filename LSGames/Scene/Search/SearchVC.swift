@@ -17,6 +17,11 @@ class SearchVC: CYViewController<SearchVM> {
         listenViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.fetchData()
+    }
+    
     
     override func configureUI() {
         super.configureUI()
