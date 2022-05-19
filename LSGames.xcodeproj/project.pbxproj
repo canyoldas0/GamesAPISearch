@@ -23,6 +23,10 @@
 		1E42A9512836AA7100D7553F /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9502836AA7000D7553F /* FavoritesVC.swift */; };
 		1E42A9532836AA8300D7553F /* FavoritesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9522836AA8300D7553F /* FavoritesVM.swift */; };
 		1E42A9552836AA9000D7553F /* FavoritesViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9542836AA9000D7553F /* FavoritesViewBuilder.swift */; };
+		1E42A9592836AE2100D7553F /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9582836AE2100D7553F /* ViewState.swift */; };
+		1E42A95B2836B04D00D7553F /* TabBarImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A95A2836B04D00D7553F /* TabBarImages.swift */; };
+		1E42A95D2836B06600D7553F /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A95C2836B06600D7553F /* AppTheme.swift */; };
+		1E42A95F2836B08F00D7553F /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A95E2836B08F00D7553F /* TypeAliases.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +47,10 @@
 		1E42A9502836AA7000D7553F /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		1E42A9522836AA8300D7553F /* FavoritesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVM.swift; sourceTree = "<group>"; };
 		1E42A9542836AA9000D7553F /* FavoritesViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewBuilder.swift; sourceTree = "<group>"; };
+		1E42A9582836AE2100D7553F /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		1E42A95A2836B04D00D7553F /* TabBarImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarImages.swift; sourceTree = "<group>"; };
+		1E42A95C2836B06600D7553F /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		1E42A95E2836B08F00D7553F /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +84,7 @@
 		1E42A9222836A66900D7553F /* LSGames */ = {
 			isa = PBXGroup;
 			children = (
+				1E42A9562836ADB800D7553F /* Utils */,
 				1E42A9382836A6F600D7553F /* Scene */,
 				1E42A9372836A6ED00D7553F /* Application */,
 				1E42A92C2836A66900D7553F /* Assets.xcassets */,
@@ -142,6 +151,25 @@
 				1E42A9542836AA9000D7553F /* FavoritesViewBuilder.swift */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		1E42A9562836ADB800D7553F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1E42A9572836AE1D00D7553F /* Enums */,
+				1E42A95A2836B04D00D7553F /* TabBarImages.swift */,
+				1E42A95C2836B06600D7553F /* AppTheme.swift */,
+				1E42A95E2836B08F00D7553F /* TypeAliases.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		1E42A9572836AE1D00D7553F /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				1E42A9582836AE2100D7553F /* ViewState.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,11 +256,15 @@
 				1E42A93D2836A7E500D7553F /* MainTabBarVC.swift in Sources */,
 				1E42A9482836A8FD00D7553F /* SearchViewBuilder.swift in Sources */,
 				1E42A94A2836A96600D7553F /* DetailVC.swift in Sources */,
+				1E42A9592836AE2100D7553F /* ViewState.swift in Sources */,
 				1E42A93F2836A80600D7553F /* MainTabBarBuilder.swift in Sources */,
 				1E42A94C2836A97700D7553F /* DetailVM.swift in Sources */,
 				1E42A9532836AA8300D7553F /* FavoritesVM.swift in Sources */,
 				1E42A9552836AA9000D7553F /* FavoritesViewBuilder.swift in Sources */,
+				1E42A95D2836B06600D7553F /* AppTheme.swift in Sources */,
+				1E42A95B2836B04D00D7553F /* TabBarImages.swift in Sources */,
 				1E42A9262836A66900D7553F /* SceneDelegate.swift in Sources */,
+				1E42A95F2836B08F00D7553F /* TypeAliases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
