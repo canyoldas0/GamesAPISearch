@@ -10,6 +10,17 @@ import CYBase
 
 final class SearchVM {
     
+    var viewState: ViewStateBlock?
+    
+    func listenViewState(with completion: @escaping ViewStateBlock) {
+        viewState = completion
+    }
+    
+    func fetchData() {
+        
+    }
+    
+    
 }
 
 extension SearchVM: ItemProviderProtocol {

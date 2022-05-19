@@ -14,6 +14,7 @@ class SearchVC: CYViewController<SearchVM> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        listenViewModel()
     }
     
     
@@ -29,7 +30,25 @@ class SearchVC: CYViewController<SearchVM> {
             listView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             listView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             listView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            listView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            listView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    
+    
+    private func listenViewModel() {
+        
+        viewModel.listenViewState { [weak self] state in
+            switch state {
+                
+            case .loading:
+                self?.startLoading()
+            case .done:
+                self?.stopLoading()
+                // refresh tableview
+            case .failure:
+                break // Bottomsheet error handling?
+            }
+        }
     }
 }
