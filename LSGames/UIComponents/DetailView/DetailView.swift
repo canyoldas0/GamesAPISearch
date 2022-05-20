@@ -14,7 +14,6 @@ struct ButtonRedirectData {
     let buttonUrl: String
 }
 
-
 class DetailViewData: CYDataProtocol {
     
     private(set) var title: String
@@ -71,6 +70,14 @@ class DetailView: CYBaseView<DetailViewData> {
         return InfoTableViewCellData(title: data.title,
                                      imageUrl: data.imageUrl,
                                      description: data.description)
+    }
+    
+  
+    override func loadDataToView() {
+        super.loadDataToView()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
 
