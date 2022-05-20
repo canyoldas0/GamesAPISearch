@@ -12,9 +12,12 @@ final class SearchVM {
     
     var viewState: ViewStateBlock?
     var networkManager: SearchNetworkProtocol
+    var dataHandler: SearchDataHandlerProtocol
     
-    init(networkManager: SearchNetworkProtocol = SearchAPI()) {
+    init(networkManager: SearchNetworkProtocol = SearchAPI(),
+         dataHandler: SearchDataHandlerProtocol) {
         self.networkManager = networkManager
+        self.dataHandler = dataHandler
     }
     
     func listenViewState(with completion: @escaping ViewStateBlock) {
@@ -27,28 +30,26 @@ final class SearchVM {
         networkManager.searchGames(with: GameListRequest(page_size: 10, page: 1)) { [weak self] response in
             switch response {
             case .success(let data):
-                print(data.results[0])
+                self?.dataHandler.setData(with: data.results)
                 self?.viewState?(.done)
             case .failure(let error):
                 self?.viewState?(.failure(error))
             }
         }
     }
-    
-    
 }
 
 extension SearchVM: ItemProviderProtocol {
     
     func askNumberOfSection() -> Int {
-        return 0
+        return dataHandler.getNumberOfSection()
     }
     
     func askNumberOfItem(in section: Int) -> Int {
-        return 10
+        return dataHandler.getNumberOfItem(in: section)
     }
     
     func askData(at index: Int) -> CYDataProtocol? {
-        return nil
+        return dataHandler.getItem(at: index)
     }
 }

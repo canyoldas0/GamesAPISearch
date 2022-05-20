@@ -50,7 +50,7 @@ class SearchVC: CYViewController<SearchVM> {
                 self?.startLoading()
             case .done:
                 self?.stopLoading()
-                // refresh tableview
+                self?.listView.reloadCollectionView()
             case .failure:
                 break // Bottomsheet error handling?
             }
