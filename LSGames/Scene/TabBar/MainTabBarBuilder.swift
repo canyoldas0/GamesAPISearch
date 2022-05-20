@@ -17,6 +17,7 @@ class MainTabBarBuilder {
         let tabViewController = MainTabBarController()
         tabViewController.viewControllers = [searchVC, favoritesVC]
         tabViewController.tabBar.tintColor = .black
+        tabViewController.tabBar.barTintColor = .systemBackground
         
         return tabViewController
         

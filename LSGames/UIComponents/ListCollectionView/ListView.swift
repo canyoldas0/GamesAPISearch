@@ -47,9 +47,11 @@ class ListView: BaseView {
     }
     
     // TODO: Not sure If this will work, Check later on.
-    @MainActor
+    // @MainActor
     func reloadCollectionView() {
-        self.collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
@@ -74,11 +76,11 @@ extension ListView: UICollectionViewDelegate, UICollectionViewDataSource {
                 for: indexPath) as? LoadingCellView else { fatalError() }
             return cell
         } else {
-//            guard let data = delegate?.askData(at: indexPath.row) else { return UICollectionViewCell() }
+            guard let data = delegate?.askData(at: indexPath.row) else { return UICollectionViewCell() }
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionViewCell.identifier, for: indexPath) as? ListCollectionViewCell else { return UICollectionViewCell() }
-            let mockData = ListCollectionViewCellData(imageUrl: "https://media.rawg.io/media/games/ffe/ffed87105b14f5beff72ff44a7793fd5.jpg",
-                                                      title: "GTA V", metaScore: "85", categories: "Action")
-            cell.setData(with: mockData)
+//            let mockData = ListCollectionViewCellData(imageUrl: "https://media.rawg.io/media/games/ffe/ffed87105b14f5beff72ff44a7793fd5.jpg",
+//                                                      title: "GTA V", metaScore: "85", categories: "Action")
+            cell.setData(with: data)
             return cell
         }
     }
