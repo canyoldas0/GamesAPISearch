@@ -55,5 +55,12 @@ class SearchVC: CYViewController<SearchVM> {
                 break // Bottomsheet error handling?
             }
         }
+        
+        viewModel.listenRequestState { [weak self] request in
+            let detailVC = DetailViewBuilder.build(with: request)
+            self?.navigationController?.pushViewController(detailVC, animated: false)
+        }
     }
+    
+    
 }

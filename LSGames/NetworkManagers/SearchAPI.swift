@@ -7,7 +7,9 @@
 
 import Foundation
 
-typealias GameListResponseBlock = (Result<GameListResponse,ErrorResponse>) -> Void // TODO: Dummy Block just to try out networkService
+typealias GameListResponseBlock = (Result<GameListResponse,ErrorResponse>) -> Void
+
+
 protocol SearchNetworkProtocol: AnyObject {
     
     func searchGames(with request: GameListRequest, completion: @escaping GameListResponseBlock)

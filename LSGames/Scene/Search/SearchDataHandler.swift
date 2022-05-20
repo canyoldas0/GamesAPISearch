@@ -15,7 +15,7 @@ protocol SearchDataHandlerProtocol {
     func getItem(at index: Int) -> CYDataProtocol?
     func getNumberOfSection() -> Int
     func getNumberOfItem(in section: Int) -> Int
-    func getItemId(at index: Int) -> String
+    func getItemId(at index: Int) -> Int
     func getCount() -> Int
     func setData(with response: [GameData])
     
@@ -60,8 +60,8 @@ class SearchDataHandler: SearchDataHandlerProtocol {
     }
     
     
-    func getItemId(at index: Int) -> String {
-        return "\(list[index].id)"
+    func getItemId(at index: Int) -> Int {
+        return list[index].id
     }
 
 }

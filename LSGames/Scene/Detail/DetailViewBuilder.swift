@@ -9,9 +9,9 @@ import UIKit
 
 class DetailViewBuilder {
     
-    class func build() -> UIViewController {
+    class func build(with request: GameDetailRequest) -> UIViewController {
         
-        let detailVM = DetailVM()
+        let detailVM = DetailVM(request: request)
         let detailVC = DetailVC(viewModel: detailVM)
         return detailVC
     }

@@ -83,6 +83,15 @@ extension ListView: UICollectionViewDelegate, UICollectionViewDataSource {
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.startTappedAnimation(with: { [weak self] finish in
+            if finish {
+                self?.delegate?.selectedItem(at: indexPath.row)
+            }
+        })
+    }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if isLoadingCell(for: indexPath) {
             delegate?.getMoreData()

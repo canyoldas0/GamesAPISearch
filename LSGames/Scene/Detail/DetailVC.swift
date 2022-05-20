@@ -8,7 +8,13 @@
 import UIKit
 import CYBase
 
+
 class DetailVC: CYViewController<DetailVM> {
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel.fetchData()
+    }
     
 }

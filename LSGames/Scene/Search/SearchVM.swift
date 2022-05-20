@@ -10,9 +10,11 @@ import CYBase
 
 final class SearchVM {
     
-    var viewState: ViewStateBlock?
     var networkManager: SearchNetworkProtocol
     var dataHandler: SearchDataHandlerProtocol
+    
+    var viewState: ViewStateBlock?
+    var detailRequestState: DetailRequestStateBlock?
     
     init(networkManager: SearchNetworkProtocol = SearchAPI(),
          dataHandler: SearchDataHandlerProtocol) {
@@ -22,6 +24,10 @@ final class SearchVM {
     
     func listenViewState(with completion: @escaping ViewStateBlock) {
         viewState = completion
+    }
+    
+    func listenRequestState(with completion: @escaping DetailRequestStateBlock) {
+        detailRequestState = completion
     }
     
     func fetchData() {
@@ -61,6 +67,10 @@ extension SearchVM: ItemProviderProtocol {
     
     func isLoadingCell(for index: Int) -> Bool {
         return index + 1 >= dataHandler.getCount()
+    }
+    
+    func selectedItem(at index: Int) {
+        detailRequestState?(GameDetailRequest(id: dataHandler.getItemId(at: index)))
     }
     
     func getMoreData() {
