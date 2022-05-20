@@ -20,10 +20,9 @@ class GameListProvider: ApiServiceProvider<GameListRequest> {
 
 class GameListRequest: Codable {
     
+    private(set) var key: String = "3be8af6ebf124ffe81d90f514e59856c"
     private(set) var page_size: Int
     private(set) var page: Int
-    private(set) var key: String = "3be8af6ebf124ffe81d90f514e59856c"
-
     
     init(page_size: Int, page: Int) {
         self.page = page

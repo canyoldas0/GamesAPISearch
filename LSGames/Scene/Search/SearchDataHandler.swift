@@ -10,11 +10,13 @@ import CYBase
 
 protocol SearchDataHandlerProtocol {
     
-//    func setData(with response: [CountryData])
+    var paginationData: PaginationInfo { get set }
+    
     func getItem(at index: Int) -> CYDataProtocol?
     func getNumberOfSection() -> Int
     func getNumberOfItem(in section: Int) -> Int
     func getItemId(at index: Int) -> String
+    func getCount() -> Int
     func setData(with response: [GameData])
     
 }
@@ -22,8 +24,10 @@ protocol SearchDataHandlerProtocol {
 class SearchDataHandler: SearchDataHandlerProtocol {
     
     private var list: [GameData] = [GameData]()
+    var paginationData: PaginationInfo = PaginationInfo()
     
     func setData(with response: [GameData]) {
+        self.paginationData.resultCount = response.count
         self.list.append(contentsOf: response)
     }
     
@@ -48,6 +52,10 @@ class SearchDataHandler: SearchDataHandlerProtocol {
     }
     
     func getNumberOfItem(in section: Int) -> Int {
+        return list.count
+    }
+    
+    func getCount() -> Int {
         return list.count
     }
     

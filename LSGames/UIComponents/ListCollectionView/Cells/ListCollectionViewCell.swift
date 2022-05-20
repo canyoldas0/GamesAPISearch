@@ -24,6 +24,7 @@ class ListCollectionViewCell: CYCollectionViewCell {
     
     func setData(with data: CYDataProtocol) {
         guard let data = data as? ListCollectionViewCellData else { return}
+        imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: URL(string: data.imageUrl))
         categoryLabel.text = data.categories
         scoreLabel.text = data.metaScore

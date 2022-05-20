@@ -59,6 +59,7 @@
 		1E42A9AF283703EA00D7553F /* GameListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9AE283703EA00D7553F /* GameListProvider.swift */; };
 		1E42A9B12837072500D7553F /* SearchDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9B02837072500D7553F /* SearchDataHandler.swift */; };
 		1E42A9B4283709C900D7553F /* GameListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9B3283709C900D7553F /* GameListResponse.swift */; };
+		1E42A9B62837AAEF00D7553F /* PaginationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9B52837AAEF00D7553F /* PaginationInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +114,7 @@
 		1E42A9AE283703EA00D7553F /* GameListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListProvider.swift; sourceTree = "<group>"; };
 		1E42A9B02837072500D7553F /* SearchDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataHandler.swift; sourceTree = "<group>"; };
 		1E42A9B3283709C900D7553F /* GameListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListResponse.swift; sourceTree = "<group>"; };
+		1E42A9B52837AAEF00D7553F /* PaginationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				1E42A9B3283709C900D7553F /* GameListResponse.swift */,
+				1E42A9B52837AAEF00D7553F /* PaginationInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				1E42A9802836D1D700D7553F /* CustomFlowLayout.swift in Sources */,
 				1E42A9482836A8FD00D7553F /* SearchViewBuilder.swift in Sources */,
 				1E42A94A2836A96600D7553F /* DetailVC.swift in Sources */,
+				1E42A9B62837AAEF00D7553F /* PaginationInfo.swift in Sources */,
 				1E42A9592836AE2100D7553F /* ViewState.swift in Sources */,
 				1E42A93F2836A80600D7553F /* MainTabBarBuilder.swift in Sources */,
 				1E42A9B4283709C900D7553F /* GameListResponse.swift in Sources */,
