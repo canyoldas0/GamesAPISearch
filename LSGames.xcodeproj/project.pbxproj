@@ -64,6 +64,11 @@
 		1E42A9BA2837BD6B00D7553F /* GameDetailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9B92837BD6B00D7553F /* GameDetailAPI.swift */; };
 		1E42A9BC2837BF4F00D7553F /* GameDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9BB2837BF4F00D7553F /* GameDetailResponse.swift */; };
 		1E42A9BF2837C7A600D7553F /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9BE2837C7A600D7553F /* DetailView.swift */; };
+		1E42A9C52837CC3600D7553F /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9C32837CC3600D7553F /* InfoTableViewCell.swift */; };
+		1E42A9C62837CC3600D7553F /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E42A9C42837CC3600D7553F /* InfoTableViewCell.xib */; };
+		1E42A9C82837CC4C00D7553F /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9C72837CC4C00D7553F /* UITableView+Extensions.swift */; };
+		1E42A9CA2837CC7000D7553F /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9C92837CC7000D7553F /* UITableViewCell+Extensions.swift */; };
+		1E42A9CC2837D29700D7553F /* InfoTableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9CB2837D29700D7553F /* InfoTableViewCellData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +128,11 @@
 		1E42A9B92837BD6B00D7553F /* GameDetailAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailAPI.swift; sourceTree = "<group>"; };
 		1E42A9BB2837BF4F00D7553F /* GameDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailResponse.swift; sourceTree = "<group>"; };
 		1E42A9BE2837C7A600D7553F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		1E42A9C32837CC3600D7553F /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		1E42A9C42837CC3600D7553F /* InfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
+		1E42A9C72837CC4C00D7553F /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		1E42A9C92837CC7000D7553F /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		1E42A9CB2837D29700D7553F /* InfoTableViewCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCellData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +299,8 @@
 				1E42A9762836BB3100D7553F /* UICollectionView+Extensions.swift */,
 				1E42A9782836BB4C00D7553F /* UICollectionViewCell+Extensions.swift */,
 				1E42A9902836FF2500D7553F /* String+Extensions.swift */,
+				1E42A9C72837CC4C00D7553F /* UITableView+Extensions.swift */,
+				1E42A9C92837CC7000D7553F /* UITableViewCell+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -388,9 +400,20 @@
 		1E42A9BD2837C50900D7553F /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
+				1E42A9C02837CBFB00D7553F /* Cells */,
 				1E42A9BE2837C7A600D7553F /* DetailView.swift */,
 			);
 			path = DetailView;
+			sourceTree = "<group>";
+		};
+		1E42A9C02837CBFB00D7553F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1E42A9C32837CC3600D7553F /* InfoTableViewCell.swift */,
+				1E42A9CB2837D29700D7553F /* InfoTableViewCellData.swift */,
+				1E42A9C42837CC3600D7553F /* InfoTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E42A9302836A66900D7553F /* LaunchScreen.storyboard in Resources */,
+				1E42A9C62837CC3600D7553F /* InfoTableViewCell.xib in Resources */,
 				1E42A92D2836A66900D7553F /* Assets.xcassets in Resources */,
 				1E42A9742836B61700D7553F /* ListCollectionViewCell.xib in Resources */,
 			);
@@ -487,6 +511,7 @@
 				1E42A9732836B61700D7553F /* ListCollectionViewCell.swift in Sources */,
 				1E42A9B82837B68900D7553F /* GameDetailProvider.swift in Sources */,
 				1E42A9992837034B00D7553F /* URLRequest+Extension.swift in Sources */,
+				1E42A9C52837CC3600D7553F /* InfoTableViewCell.swift in Sources */,
 				1E42A93D2836A7E500D7553F /* MainTabBarVC.swift in Sources */,
 				1E42A9A92837038A00D7553F /* HTTPHeader.swift in Sources */,
 				1E42A98C2836FBBF00D7553F /* ApiConnectionErrorType.swift in Sources */,
@@ -498,6 +523,7 @@
 				1E42A9B62837AAEF00D7553F /* PaginationInfo.swift in Sources */,
 				1E42A9592836AE2100D7553F /* ViewState.swift in Sources */,
 				1E42A93F2836A80600D7553F /* MainTabBarBuilder.swift in Sources */,
+				1E42A9CC2837D29700D7553F /* InfoTableViewCellData.swift in Sources */,
 				1E42A9B4283709C900D7553F /* GameListResponse.swift in Sources */,
 				1E42A9BA2837BD6B00D7553F /* GameDetailAPI.swift in Sources */,
 				1E42A9932837014000D7553F /* EndpointHelper.swift in Sources */,
@@ -510,12 +536,14 @@
 				1E42A98F2836FD0400D7553F /* SearchAPI.swift in Sources */,
 				1E42A9552836AA9000D7553F /* FavoritesViewBuilder.swift in Sources */,
 				1E42A95D2836B06600D7553F /* AppTheme.swift in Sources */,
+				1E42A9C82837CC4C00D7553F /* UITableView+Extensions.swift in Sources */,
 				1E42A97E2836BC4F00D7553F /* LoadingCellView.swift in Sources */,
 				1E42A97C2836BC0200D7553F /* ItemProviderProtocol.swift in Sources */,
 				1E42A99A2837034B00D7553F /* Codable+Extension.swift in Sources */,
 				1E42A95B2836B04D00D7553F /* TabBarImages.swift in Sources */,
 				1E42A9B12837072500D7553F /* SearchDataHandler.swift in Sources */,
 				1E42A9AC2837038A00D7553F /* HTTPHeaders.swift in Sources */,
+				1E42A9CA2837CC7000D7553F /* UITableViewCell+Extensions.swift in Sources */,
 				1E42A9262836A66900D7553F /* SceneDelegate.swift in Sources */,
 				1E42A98A2836FBB300D7553F /* ServerResponse.swift in Sources */,
 				1E42A9A02837036700D7553F /* JSONParameterEncoder.swift in Sources */,

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="InfoTableViewCell" customModule="LSGames" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="433"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="433"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHE-xq-ZY6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="291"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BKS-9O-6vB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="291"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="291" id="3mX-i7-4PV"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grand Theft Auto V" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DA6-Hs-CcW">
+                                <rect key="frame" x="27.5" y="232" width="320" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="BKS-9O-6vB" secondAttribute="bottom" id="TUm-ng-LUf"/>
+                            <constraint firstAttribute="bottom" secondItem="DA6-Hs-CcW" secondAttribute="bottom" constant="16" id="bPh-Li-rde"/>
+                            <constraint firstAttribute="trailing" secondItem="BKS-9O-6vB" secondAttribute="trailing" id="boG-LZ-kcC"/>
+                            <constraint firstItem="BKS-9O-6vB" firstAttribute="leading" secondItem="bHE-xq-ZY6" secondAttribute="leading" id="dnV-21-BJP"/>
+                            <constraint firstItem="DA6-Hs-CcW" firstAttribute="centerX" secondItem="bHE-xq-ZY6" secondAttribute="centerX" id="hH3-6g-UrY"/>
+                            <constraint firstItem="BKS-9O-6vB" firstAttribute="top" secondItem="bHE-xq-ZY6" secondAttribute="top" id="xNt-aa-Ezh"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRc-dU-IwN">
+                        <rect key="frame" x="16" y="307" width="136.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.19215686274509802" green="0.19215686274509802" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8l7-4Q-b3E">
+                        <rect key="frame" x="16" y="336" width="343" height="48"/>
+                        <string key="text">Rockstar Games went bigger, since their previous installment of the series. You get the complicated and realistic world-building from Liberty City of GTA4 in the setting of lively and diverse Los Santos, from an old fan favorite GTA San Andreas. 561 different vehicles (including every transport you can operate)....</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.19215686274509802" green="0.19215686274509802" blue="0.19215686274509802" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bHE-xq-ZY6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0cf-gE-LVw"/>
+                    <constraint firstItem="xRc-dU-IwN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Kby-ks-3HA"/>
+                    <constraint firstItem="xRc-dU-IwN" firstAttribute="top" secondItem="bHE-xq-ZY6" secondAttribute="bottom" constant="16" id="MPS-oI-i0F"/>
+                    <constraint firstItem="bHE-xq-ZY6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="NsE-VX-aEV"/>
+                    <constraint firstItem="8l7-4Q-b3E" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="X0z-kA-6iI"/>
+                    <constraint firstAttribute="trailing" secondItem="8l7-4Q-b3E" secondAttribute="trailing" constant="16" id="aJc-ZL-pO9"/>
+                    <constraint firstAttribute="trailing" secondItem="bHE-xq-ZY6" secondAttribute="trailing" id="cut-oD-ftz"/>
+                    <constraint firstItem="8l7-4Q-b3E" firstAttribute="top" secondItem="xRc-dU-IwN" secondAttribute="bottom" constant="8" id="wvI-38-rxy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="8l7-4Q-b3E" id="9uP-u9-UZQ"/>
+                <outlet property="imageContainer" destination="BKS-9O-6vB" id="aF5-Nm-CZ5"/>
+                <outlet property="titleLabel" destination="DA6-Hs-CcW" id="AxE-n9-LNH"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="123"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

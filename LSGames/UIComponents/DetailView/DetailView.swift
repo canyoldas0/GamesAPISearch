@@ -48,7 +48,7 @@ class DetailView: CYBaseView<DetailViewData> {
         temp.separatorStyle = .singleLine
         temp.estimatedRowHeight = UITableView.automaticDimension
         temp.rowHeight = UITableView.automaticDimension
-//        temp.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
+        temp.register(InfoTableViewCell.self, forCellReuseIdentifier: InfoTableViewCell.identifier)
 //        temp.register(LoadingTableViewCell.self, forCellReuseIdentifier: LoadingTableViewCell.identifier)
         return temp
     }()
@@ -64,6 +64,13 @@ class DetailView: CYBaseView<DetailViewData> {
             tableView.topAnchor.constraint(equalTo: topAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    
+    func getInfoCellData() -> InfoTableViewCellData? {
+        guard let data = returnData() else {return nil }
+        return InfoTableViewCellData(title: data.title,
+                                     imageUrl: data.imageUrl,
+                                     description: data.description)
     }
 }
 
@@ -88,6 +95,18 @@ extension DetailView: UITableViewDelegate, UITableViewDataSource {
     }
    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        let section = tableViewSections[indexPath.section]
+        
+        switch section {
+            
+        case .infoSection:
+            let cell = InfoTableViewCell.dequeue(fromTableView: tableView, atIndexPath: indexPath)
+            cell.setData(with: getInfoCellData())
+            return cell
+        case .buttonSection:
+            let cell = UITableViewCell()
+            return cell
+        }
     }
 }
