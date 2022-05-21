@@ -22,6 +22,7 @@ class FavoritesVC: CYViewController<FavoritesVM> {
         viewModel.fetchData()
     }
     
+ 
     
     private func listenViewModel() {
         

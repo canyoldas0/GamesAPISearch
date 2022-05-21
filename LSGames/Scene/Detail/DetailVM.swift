@@ -10,7 +10,6 @@ import Foundation
 final class DetailVM {
     
     var requestData: GameDetailRequest
-    
     var networkManager: GameDetailNetworkProtocol
     
     init(request: GameDetailRequest, networkManager: GameDetailNetworkProtocol = GameDetailAPI()) {

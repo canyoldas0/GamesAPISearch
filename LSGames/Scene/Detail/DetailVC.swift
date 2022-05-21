@@ -12,21 +12,33 @@ import CYBase
 class DetailVC: CYViewController<DetailVM> {
     
     private var detailView: DetailView!
+    lazy var favouriteButton: UIBarButtonItem = {
+        let temp = UIBarButtonItem(title: "Favourite",
+                                   style: .plain,
+                                   target: self,
+                                   action: #selector(favouriteClicked))
+        return temp
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = favouriteButton
         navigationController?.navigationBar.prefersLargeTitles = false
         self.startLoading()
         viewModel.fetchData { [weak self] viewData in
             self?.detailView.setData(data: viewData)
-            self?.configureFavoriteButton(with: viewData.isFavorited)
+            self?.configureFavoriteButton(viewData.isFavorited)
             self?.stopLoading()
         }
     }
     
-    private func configureFavoriteButton(with data: Bool) {
-        // if data == true {
-        // navBarButton.tittle = "Favourited"
+    private func configureFavoriteButton(_ isFavorited: Bool) {
+        favouriteButton.title = isFavorited ? "Favourited": "Favourite"
+    }
+    
+    
+    @objc func favouriteClicked() {
+        print("hello")
     }
     
     
@@ -35,7 +47,7 @@ class DetailVC: CYViewController<DetailVM> {
         detailView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(detailView)
         NSLayoutConstraint.activate([
-        
+            
             detailView.topAnchor.constraint(equalTo: view.topAnchor),
             detailView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             detailView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
