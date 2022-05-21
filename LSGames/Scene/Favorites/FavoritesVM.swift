@@ -10,6 +10,11 @@ import Foundation
 final class FavoritesVM {
     
     var viewState: ViewStateBlock?
+    var networkManager: FavoritesNetworkProtocol
+    
+    init(networkManager: FavoritesNetworkProtocol = FavoritesAPI()) {
+        self.networkManager = networkManager
+    }
     
     func listenViewState(with completion: @escaping ViewStateBlock) {
         viewState = completion
@@ -17,5 +22,11 @@ final class FavoritesVM {
     
     func fetchData() {
         viewState?(.loading)
+        
+        networkManager.getFavoriteGames { [weak self] response in
+            
+            // self?.dataHandler.setData(from: response)
+            self?.viewState?(.done)
+        }
     }
 }

@@ -20,12 +20,14 @@ class DetailViewData: CYDataProtocol {
     private(set) var imageUrl: String
     private(set) var description: String
     private(set) var buttons: [ButtonRedirectData]
+    private(set) var isFavorited: Bool
     
-    init(title: String, imageUrl: String, description: String, buttons: [ButtonRedirectData]) {
+    init(title: String, imageUrl: String, description: String, buttons: [ButtonRedirectData], isFavorited: Bool = false) {
         self.title = title
         self.imageUrl = imageUrl
         self.description = description
         self.buttons = buttons
+        self.isFavorited = isFavorited
     }
 }
 

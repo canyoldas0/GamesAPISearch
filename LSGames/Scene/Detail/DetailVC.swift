@@ -19,8 +19,14 @@ class DetailVC: CYViewController<DetailVM> {
         self.startLoading()
         viewModel.fetchData { [weak self] viewData in
             self?.detailView.setData(data: viewData)
+            self?.configureFavoriteButton(with: viewData.isFavorited)
             self?.stopLoading()
         }
+    }
+    
+    private func configureFavoriteButton(with data: Bool) {
+        // if data == true {
+        // navBarButton.tittle = "Favourited"
     }
     
     
