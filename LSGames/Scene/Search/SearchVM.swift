@@ -33,7 +33,23 @@ final class SearchVM {
     func fetchData() {
         viewState?(.loading)
         
-        networkManager.searchGames(with: GameListRequest(page_size: 10, page: dataHandler.paginationData.page)) { [weak self] response in
+//        networkManager.searchGames(with: GameListRequest(page_size: 10, page: dataHandler.paginationData.page)) { [weak self] response in
+//            switch response {
+//            case .success(let response):
+//                self?.handleSuccessResponse(response)
+//            case .failure(let error):
+//                self?.viewState?(.failure(error))
+//            }
+//        }
+    }
+    
+    func searchGame(with text: String) {
+        viewState?(.loading)
+        let request = GameListRequest(page_size: 10,
+                                      page: dataHandler.paginationData.page,
+                                      searchText: text)
+        
+        networkManager.searchGames(with: request) { [weak self] response in
             switch response {
             case .success(let response):
                 self?.handleSuccessResponse(response)

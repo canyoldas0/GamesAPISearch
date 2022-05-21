@@ -38,15 +38,10 @@ class ApiServiceProvider<T: Codable>: URLRequestProtocol {
             url = url.appendingPathComponent(path)
         }
          
-         let apiHeaders = [
-             "x-rapidapi-host": "wft-geo-db.p.rapidapi.com",
-             "x-rapidapi-key": "ca570ed80amsh0037ada6c8e41bfp1892b4jsne656da8543f3"
-         ]
         
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.headers = headers
-        request.allHTTPHeaderFields = apiHeaders
         
         try configureEncoding(request: &request)
         

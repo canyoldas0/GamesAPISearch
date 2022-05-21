@@ -15,12 +15,14 @@ class DetailVC: CYViewController<DetailVM> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = false
         self.startLoading()
         viewModel.fetchData { [weak self] viewData in
             self?.detailView.setData(data: viewData)
             self?.stopLoading()
         }
     }
+    
     
     override func configureUI() {
         self.detailView = DetailView()

@@ -44,11 +44,12 @@ class DetailView: CYBaseView<DetailViewData> {
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.delegate = self
         temp.dataSource = self
-        temp.separatorStyle = .singleLine
-        temp.estimatedRowHeight = UITableView.automaticDimension
-        temp.rowHeight = UITableView.automaticDimension
-        temp.register(InfoTableViewCell.self, forCellReuseIdentifier: InfoTableViewCell.identifier)
-//        temp.register(LoadingTableViewCell.self, forCellReuseIdentifier: LoadingTableViewCell.identifier)
+        temp.alwaysBounceVertical = false
+        temp.showsVerticalScrollIndicator = false
+        temp.allowsSelection = false
+//        temp.estimatedRowHeight = 700
+        temp.rowHeight = 700
+        temp.registerNib(withIdentifier: InfoTableViewCell.identifier)
         return temp
     }()
     
@@ -72,19 +73,23 @@ class DetailView: CYBaseView<DetailViewData> {
                                      description: data.description)
     }
     
-  
     override func loadDataToView() {
         super.loadDataToView()
+        reloadTable()
+    }
+    
+    func reloadTable() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
+    
 }
 
 extension DetailView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        
         let section = tableViewSections[section]
         
         switch section {
@@ -100,7 +105,7 @@ extension DetailView: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableViewSections.count
     }
-   
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let section = tableViewSections[indexPath.section]
@@ -110,6 +115,7 @@ extension DetailView: UITableViewDelegate, UITableViewDataSource {
         case .infoSection:
             let cell = InfoTableViewCell.dequeue(fromTableView: tableView, atIndexPath: indexPath)
             cell.setData(with: getInfoCellData())
+            cell.frame = tableView.frame
             return cell
         case .buttonSection:
             let cell = UITableViewCell()

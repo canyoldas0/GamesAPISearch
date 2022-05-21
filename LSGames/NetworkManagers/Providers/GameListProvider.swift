@@ -23,9 +23,11 @@ class GameListRequest: Codable {
     private(set) var key: String = "3be8af6ebf124ffe81d90f514e59856c"
     private(set) var page_size: Int
     private(set) var page: Int
+    private(set) var search: String
     
-    init(page_size: Int, page: Int) {
+    init(page_size: Int, page: Int, searchText: String) {
         self.page = page
         self.page_size = page_size
+        self.search = searchText
     }
 }

@@ -33,7 +33,7 @@ class SearchDataHandler: SearchDataHandlerProtocol {
     
     
     func getItem(at index: Int) -> CYDataProtocol? {
-        return ListCollectionViewCellData(imageUrl: list[index].backgroundImage,
+        return ListCollectionViewCellData(imageUrl: list[index].backgroundImage ?? "",
                                           title: list[index].name,
                                           metaScore: "\(list[index].metacritic)",
                                           categories: getCategories(at: index))

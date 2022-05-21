@@ -20,6 +20,7 @@ class SearchAPI: SearchNetworkProtocol {
     func searchGames(with request: GameListRequest, completion: @escaping GameListResponseBlock) {
         do {
             guard let urlRequest = try? GameListProvider(with: request).returnUrlRequest() else {return}
+            print(urlRequest)
         BaseNetworkManager.shared.sendRequest(urlRequest: urlRequest, completion: completion)
         }
     }
