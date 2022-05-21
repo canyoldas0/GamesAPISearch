@@ -25,6 +25,7 @@ final class FavoritesVM {
         
         networkManager.getFavoriteGames { [weak self] response in
             
+            print(response.count)
             // self?.dataHandler.setData(from: response)
             self?.viewState?(.done)
         }

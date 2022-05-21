@@ -14,6 +14,8 @@ struct GameDetailResponse: Codable {
     let website: String
     let redditURL: String
     let descriptionRaw: String
+    let metacritic: JSONNull
+    let genres: [Genre]
 
     enum CodingKeys: String, CodingKey {
         case id, name
@@ -24,5 +26,7 @@ struct GameDetailResponse: Codable {
         case website
         case redditURL = "reddit_url"
         case descriptionRaw = "description_raw"
+        case metacritic
+        case genres
     }
 }

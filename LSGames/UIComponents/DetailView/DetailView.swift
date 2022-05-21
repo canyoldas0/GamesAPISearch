@@ -14,20 +14,31 @@ struct ButtonRedirectData {
     let buttonUrl: String
 }
 
+class FavoriteButtonData {
+    
+    var state: Bool
+    private(set) var isFavorited: BooleanBlock
+    
+    init(state: Bool, isFavorited: @escaping BooleanBlock) {
+        self.state = state
+        self.isFavorited = isFavorited
+    }
+}
+
 class DetailViewData: CYDataProtocol {
     
     private(set) var title: String
     private(set) var imageUrl: String
     private(set) var description: String
     private(set) var buttons: [ButtonRedirectData]
-    private(set) var isFavorited: Bool
+    private(set) var favoriteButtonData: FavoriteButtonData
     
-    init(title: String, imageUrl: String, description: String, buttons: [ButtonRedirectData], isFavorited: Bool = false) {
+    init(title: String, imageUrl: String, description: String, buttons: [ButtonRedirectData], favoriteButtonData: FavoriteButtonData) {
         self.title = title
         self.imageUrl = imageUrl
         self.description = description
         self.buttons = buttons
-        self.isFavorited = isFavorited
+        self.favoriteButtonData = favoriteButtonData
     }
 }
 
