@@ -14,7 +14,7 @@ struct GameDetailResponse: Codable {
     let website: String
     let redditURL: String
     let descriptionRaw: String
-    let metacritic: JSONNull
+    let metacritic: String
     let genres: [Genre]
 
     enum CodingKeys: String, CodingKey {

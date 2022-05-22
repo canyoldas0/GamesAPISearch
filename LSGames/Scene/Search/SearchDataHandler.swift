@@ -18,6 +18,7 @@ protocol SearchDataHandlerProtocol {
     func getItemId(at index: Int) -> Int
     func getCount() -> Int
     func setData(with response: [GameData])
+    func clearList() 
     
 }
 
@@ -31,11 +32,15 @@ class SearchDataHandler: SearchDataHandlerProtocol {
         self.list.append(contentsOf: response)
     }
     
+    func clearList() {
+        self.list = []
+    }
+    
     
     func getItem(at index: Int) -> CYDataProtocol? {
         return ListCollectionViewCellData(imageUrl: list[index].backgroundImage ?? "",
-                                          title: list[index].name,
-                                          metaScore: "\(list[index].metacritic)",
+                                          title: list[index].name ?? "",
+                                          metaScore: "\(list[index].metacritic ?? 0)",
                                           categories: getCategories(at: index))
     }
     
@@ -43,9 +48,10 @@ class SearchDataHandler: SearchDataHandlerProtocol {
         let categoryData = list[index].genres
         
         // Getting String Array from Genre Array and formatting it to single string
-        let result = categoryData.map({ $0.name}).joined(separator: ",").capitalizingFirstLetter()
-        return result
+        let result = categoryData?.compactMap({ $0.name}).joined(separator: ",").capitalizingFirstLetter()
+        return result ?? ""
     }
+    
     
     func getNumberOfSection() -> Int {
         return 1
@@ -61,7 +67,7 @@ class SearchDataHandler: SearchDataHandlerProtocol {
     
     
     func getItemId(at index: Int) -> Int {
-        return list[index].id
+        return list[index].id!
     }
 
 }

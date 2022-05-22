@@ -45,6 +45,7 @@ final class SearchVM {
     
     func searchGame(with text: String) {
         viewState?(.loading)
+        dataHandler.clearList()
         let request = GameListRequest(page_size: 10,
                                       page: dataHandler.paginationData.page,
                                       searchText: text)
@@ -61,7 +62,7 @@ final class SearchVM {
     
     private func handleSuccessResponse(_ response: GameListResponse ) {
         self.dataHandler.paginationData.fetching = false
-        self.dataHandler.setData(with: response.results)
+        self.dataHandler.setData(with: response.results!)
         self.viewState?(.done)
     }
     

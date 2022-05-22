@@ -32,6 +32,9 @@ class BaseNetworkManager: NetworkManagerProtocol {
         
         session.dataTask(with: urlRequest) { (data, urlResponse, error) in
             self.dataTaskHandler(data, urlResponse, error, completion: completion)
+            guard let data = data else {return}
+            
+            print("data: \(String(decoding: data, as: UTF8.self))")
         }.resume()
         
     }
