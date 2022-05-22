@@ -11,7 +11,8 @@ class FavoritesViewBuilder {
     
     class func build() -> UIViewController {
         
-        let favoritesVM = FavoritesVM()
+        let dataHandler = ListDataHandler()
+        let favoritesVM = FavoritesVM(dataHandler: dataHandler)
         let favoritesVC = FavoritesVC(viewModel: favoritesVM)
         favoritesVC.title = "Favorites"
         favoritesVC.tabBarItem.image = TabBarImages.favorite.value

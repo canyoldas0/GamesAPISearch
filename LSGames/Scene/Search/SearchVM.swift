@@ -11,7 +11,7 @@ import CYBase
 final class SearchVM {
     
     var networkManager: SearchNetworkProtocol
-    var dataHandler: SearchDataHandlerProtocol
+    var dataHandler: ListDataHandlerProtocol
     
     var viewState: ViewStateBlock?
     var detailRequestState: DetailRequestStateBlock?
@@ -19,7 +19,7 @@ final class SearchVM {
     var latestSearchWord: String?
     
     init(networkManager: SearchNetworkProtocol = SearchAPI(),
-         dataHandler: SearchDataHandlerProtocol) {
+         dataHandler: ListDataHandlerProtocol) {
         self.networkManager = networkManager
         self.dataHandler = dataHandler
     }
@@ -80,7 +80,7 @@ extension SearchVM: ItemProviderProtocol {
     }
     
     func askData(at index: Int) -> CYDataProtocol? {
-        return dataHandler.getItem(at: index)
+        return dataHandler.getViewData(at: index)
     }
     
     func isLoadingCell(for index: Int) -> Bool {

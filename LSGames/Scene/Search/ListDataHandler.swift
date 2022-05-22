@@ -8,11 +8,12 @@
 import Foundation
 import CYBase
 
-protocol SearchDataHandlerProtocol {
+protocol ListDataHandlerProtocol {
     
     var paginationData: PaginationInfo { get set }
     
-    func getItem(at index: Int) -> CYDataProtocol?
+    func getViewData(at index: Int) -> CYDataProtocol?
+    func getElement(at index: Int) - > GameData
     func getNumberOfSection() -> Int
     func getNumberOfItem(in section: Int) -> Int
     func getItemId(at index: Int) -> Int
@@ -22,7 +23,7 @@ protocol SearchDataHandlerProtocol {
     
 }
 
-class SearchDataHandler: SearchDataHandlerProtocol {
+class ListDataHandler: ListDataHandlerProtocol {
     
     private var list: [GameData] = [GameData]()
     var paginationData: PaginationInfo = PaginationInfo()
@@ -36,8 +37,12 @@ class SearchDataHandler: SearchDataHandlerProtocol {
         self.list = []
     }
     
+    func getElement(at index: Int) -> GameData {
+        return list[index]
+    }
     
-    func getItem(at index: Int) -> CYDataProtocol? {
+    
+    func getViewData(at index: Int) -> CYDataProtocol? {
         return ListCollectionViewCellData(imageUrl: list[index].backgroundImage ?? "",
                                           title: list[index].name ?? "",
                                           metaScore: "\(list[index].metacritic ?? 0)",

@@ -10,6 +10,7 @@ import CYBase
 
 class FavoritesVC: CYViewController<FavoritesVM> {
     
+    private var listView: ListTableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +21,23 @@ class FavoritesVC: CYViewController<FavoritesVM> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.fetchData()
-
     }
     
+    override func configureUI() {
+        super.configureUI()
+        self.listView = ListTableView()
+        listView.translatesAutoresizingMaskIntoConstraints = false
+        listView.delegate = viewModel
+        view.addSubview(listView)
+        
+        NSLayoutConstraint.activate([
+            
+            listView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            listView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            listView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            listView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
  
     
     private func listenViewModel() {
@@ -34,7 +49,7 @@ class FavoritesVC: CYViewController<FavoritesVM> {
                 self?.startLoading()
             case .done:
                 self?.stopLoading()
-                // refresh tableview
+                self?.listView.reloadTable()
             case .failure:
                 break // Bottomsheet error handling?
             }

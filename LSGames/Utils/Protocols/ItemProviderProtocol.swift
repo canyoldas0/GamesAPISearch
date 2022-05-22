@@ -16,10 +16,12 @@ protocol ItemProviderProtocol: AnyObject {
     func selectedItem(at index: Int)
     func getMoreData()
     func isLoadingCell(for index: Int) -> Bool
+    func removeSwipedCell(at index: Int)
 }
 
 extension ItemProviderProtocol {
     func selectedItem(at index: Int) { }
+    func removeSwipedCell(at index: Int) { }
     func getMoreData() { }
     func isLoadingCell(for index: Int) -> Bool { return false }
 }

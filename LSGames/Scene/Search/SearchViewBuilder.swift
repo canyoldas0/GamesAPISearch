@@ -11,7 +11,7 @@ class SearchViewBuilder {
     
     class func build() ->  UIViewController {
         
-        let dataHandler = SearchDataHandler()
+        let dataHandler = ListDataHandler()
         let searchVM = SearchVM(dataHandler: dataHandler)
         let searchVC = SearchVC(viewModel: searchVM)
         searchVC.title = "Games"
