@@ -16,6 +16,8 @@ final class SearchVM {
     var viewState: ViewStateBlock?
     var detailRequestState: DetailRequestStateBlock?
     
+    var latestSearchWord: String?
+    
     init(networkManager: SearchNetworkProtocol = SearchAPI(),
          dataHandler: SearchDataHandlerProtocol) {
         self.networkManager = networkManager
@@ -30,22 +32,13 @@ final class SearchVM {
         detailRequestState = completion
     }
     
-    func fetchData() {
-        viewState?(.loading)
-        
-//        networkManager.searchGames(with: GameListRequest(page_size: 10, page: dataHandler.paginationData.page)) { [weak self] response in
-//            switch response {
-//            case .success(let response):
-//                self?.handleSuccessResponse(response)
-//            case .failure(let error):
-//                self?.viewState?(.failure(error))
-//            }
-//        }
+    func fetchMoreData() {
+        guard let text = latestSearchWord else { return}
+        fetchData(text: text)
     }
     
-    func searchGame(with text: String) {
+    func fetchData(text: String) {
         viewState?(.loading)
-        dataHandler.clearList()
         let request = GameListRequest(page_size: 10,
                                       page: dataHandler.paginationData.page,
                                       searchText: text)
@@ -59,6 +52,14 @@ final class SearchVM {
             }
         }
     }
+    
+    func searchGame(with text: String) {
+        viewState?(.loading)
+        dataHandler.clearList()
+        self.latestSearchWord = text
+        fetchData(text: text)
+    }
+    
     
     private func handleSuccessResponse(_ response: GameListResponse ) {
         self.dataHandler.paginationData.fetching = false
@@ -93,6 +94,6 @@ extension SearchVM: ItemProviderProtocol {
     func getMoreData() {
         guard dataHandler.paginationData.checkLoadingMore() else { return}
         dataHandler.paginationData.nextOffset()
-        fetchData()
+        fetchMoreData()
     }
 }
