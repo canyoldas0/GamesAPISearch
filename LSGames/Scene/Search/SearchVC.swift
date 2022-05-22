@@ -26,13 +26,13 @@ class SearchVC: CYViewController<SearchVM> {
     
     private func setSearchBar() {
         searchController.hidesNavigationBarDuringPresentation = true
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController!.navigationBar.sizeToFit()
         navigationItem.searchController = searchController
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
         listView.reloadCollectionView()
     }
     

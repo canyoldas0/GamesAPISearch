@@ -37,10 +37,15 @@ final class DetailVM {
     
     func getDetailViewData(from response: GameDetailResponse) -> DetailViewData {
         self.detailResponse = response
+        let visitWebButtons = [ButtonRedirectData(buttonTitle: "Visit Reddit",
+                                                  buttonUrl: response.redditURL),
+                                ButtonRedirectData(buttonTitle: "Visit Website",
+                                                   buttonUrl: response.website)
+        ]
         return DetailViewData(title: response.name,
                               imageUrl: response.backgroundImage,
                               description: response.descriptionRaw,
-                              buttons: [],
+                              buttons: visitWebButtons,
                               isAddedFavorites: PersistencyDataManager.shared.checkExists(with: convertDetailToGameData(response: response)))
     }
     

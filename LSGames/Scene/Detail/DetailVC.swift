@@ -60,6 +60,7 @@ class DetailVC: CYViewController<DetailVM> {
     
     override func configureUI() {
         self.detailView = DetailView()
+        detailView.delegate = self
         detailView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(detailView)
         NSLayoutConstraint.activate([
@@ -71,4 +72,12 @@ class DetailVC: CYViewController<DetailVM> {
         ])
     }
     
+}
+
+extension DetailVC: ButtonRedirectCellProtocol {
+    
+    func openWebView(with url: String) {
+        let webVC = WebViewController(webUrl: url)
+        self.present(webVC, animated: true)
+    }
 }

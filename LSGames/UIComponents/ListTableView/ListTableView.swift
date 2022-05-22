@@ -20,6 +20,7 @@ class ListTableView: BaseView {
         temp.separatorStyle = .none
         temp.estimatedRowHeight = UITableView.automaticDimension
         temp.rowHeight = UITableView.automaticDimension
+        temp.allowsSelection = false
         temp.registerNib(withIdentifier: SwipeTableViewCell.identifier)
         return temp
     }()

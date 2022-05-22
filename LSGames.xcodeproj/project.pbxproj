@@ -74,6 +74,9 @@
 		1E42A9D4283A7BC700D7553F /* ListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9D3283A7BC700D7553F /* ListTableView.swift */; };
 		1E42A9D8283A844600D7553F /* SwipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9D6283A844600D7553F /* SwipeTableViewCell.swift */; };
 		1E42A9D9283A844600D7553F /* SwipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E42A9D7283A844600D7553F /* SwipeTableViewCell.xib */; };
+		1E42A9DD283AD74100D7553F /* VisitWebTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9DB283AD74100D7553F /* VisitWebTableViewCell.swift */; };
+		1E42A9DE283AD74100D7553F /* VisitWebTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E42A9DC283AD74100D7553F /* VisitWebTableViewCell.xib */; };
+		1E42A9E1283AE02900D7553F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9E0283AE02800D7553F /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +146,9 @@
 		1E42A9D3283A7BC700D7553F /* ListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableView.swift; sourceTree = "<group>"; };
 		1E42A9D6283A844600D7553F /* SwipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewCell.swift; sourceTree = "<group>"; };
 		1E42A9D7283A844600D7553F /* SwipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwipeTableViewCell.xib; sourceTree = "<group>"; };
+		1E42A9DB283AD74100D7553F /* VisitWebTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitWebTableViewCell.swift; sourceTree = "<group>"; };
+		1E42A9DC283AD74100D7553F /* VisitWebTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VisitWebTableViewCell.xib; sourceTree = "<group>"; };
+		1E42A9E0283AE02800D7553F /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +211,7 @@
 		1E42A9382836A6F600D7553F /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				1E42A9DF283AE01F00D7553F /* WebView */,
 				1E42A94F2836AA6700D7553F /* Favorites */,
 				1E42A93B2836A74F00D7553F /* Detail */,
 				1E42A93A2836A6FF00D7553F /* Search */,
@@ -425,6 +432,8 @@
 				1E42A9C32837CC3600D7553F /* InfoTableViewCell.swift */,
 				1E42A9CB2837D29700D7553F /* InfoTableViewCellData.swift */,
 				1E42A9C42837CC3600D7553F /* InfoTableViewCell.xib */,
+				1E42A9DB283AD74100D7553F /* VisitWebTableViewCell.swift */,
+				1E42A9DC283AD74100D7553F /* VisitWebTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -453,6 +462,14 @@
 				1E42A9D7283A844600D7553F /* SwipeTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		1E42A9DF283AE01F00D7553F /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				1E42A9E0283AE02800D7553F /* WebViewController.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -527,6 +544,7 @@
 				1E42A9C62837CC3600D7553F /* InfoTableViewCell.xib in Resources */,
 				1E42A9D9283A844600D7553F /* SwipeTableViewCell.xib in Resources */,
 				1E42A92D2836A66900D7553F /* Assets.xcassets in Resources */,
+				1E42A9DE283AD74100D7553F /* VisitWebTableViewCell.xib in Resources */,
 				1E42A9742836B61700D7553F /* ListCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,8 +570,10 @@
 				1E42A9B82837B68900D7553F /* GameDetailProvider.swift in Sources */,
 				1E42A9992837034B00D7553F /* URLRequest+Extension.swift in Sources */,
 				1E42A9C52837CC3600D7553F /* InfoTableViewCell.swift in Sources */,
+				1E42A9DD283AD74100D7553F /* VisitWebTableViewCell.swift in Sources */,
 				1E42A93D2836A7E500D7553F /* MainTabBarVC.swift in Sources */,
 				1E42A9D4283A7BC700D7553F /* ListTableView.swift in Sources */,
+				1E42A9E1283AE02900D7553F /* WebViewController.swift in Sources */,
 				1E42A9A92837038A00D7553F /* HTTPHeader.swift in Sources */,
 				1E42A98C2836FBBF00D7553F /* ApiConnectionErrorType.swift in Sources */,
 				1E42A9802836D1D700D7553F /* CustomFlowLayout.swift in Sources */,

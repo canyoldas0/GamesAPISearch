@@ -8,6 +8,11 @@
 import UIKit
 import CYBase
 
+protocol ButtonRedirectCellProtocol: AnyObject {
+    
+    func openWebView(with url: String)
+}
+
 struct ButtonRedirectData {
     
     let buttonTitle: String
@@ -40,6 +45,7 @@ class DetailView: CYBaseView<DetailViewData> {
         case buttonSection
     }
     
+    weak var delegate: ButtonRedirectCellProtocol?
     var tableViewSections: [DetailTableViewSection] = [.infoSection, .buttonSection]
     
     private lazy var tableView: UITableView = {
@@ -48,10 +54,10 @@ class DetailView: CYBaseView<DetailViewData> {
         temp.delegate = self
         temp.dataSource = self
         temp.alwaysBounceVertical = false
-        temp.showsVerticalScrollIndicator = false
         temp.allowsSelection = false
-//        temp.estimatedRowHeight = 700
-        temp.rowHeight = 700
+        temp.showsVerticalScrollIndicator = false
+        temp.estimatedRowHeight = 500
+        temp.rowHeight = UITableView.automaticDimension
         temp.registerNib(withIdentifier: InfoTableViewCell.identifier)
         return temp
     }()
@@ -118,11 +124,30 @@ extension DetailView: UITableViewDelegate, UITableViewDataSource {
         case .infoSection:
             let cell = InfoTableViewCell.dequeue(fromTableView: tableView, atIndexPath: indexPath)
             cell.setData(with: getInfoCellData())
-            cell.frame = tableView.frame
+            cell.height = 500
             return cell
         case .buttonSection:
+            guard let cellData = returnData()?.buttons else {return UITableViewCell()}
             let cell = UITableViewCell()
+            cell.isUserInteractionEnabled = true
+            cell.textLabel?.text = cellData[indexPath.row].buttonTitle
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let section = tableViewSections[indexPath.section]
+        guard let url = returnData()?.buttons[indexPath.row].buttonUrl else {return }
+        
+        switch section {
+        case .buttonSection:
+            self.delegate?.openWebView(with: url)
+        default:
+            break
+        }
+        print("hello")
+       
+        
     }
 }
