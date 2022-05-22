@@ -22,6 +22,7 @@ class SearchVC: CYViewController<SearchVM> {
         super.viewDidLoad()
         setSearchBar()
         listenViewModel()
+        viewModel.fetchData()
     }
     
     private func setSearchBar() {

@@ -11,7 +11,8 @@ class DetailViewBuilder {
     
     class func build(with request: GameDetailRequest) -> UIViewController {
         
-        let detailVM = DetailVM(request: request)
+        let dataHandler = DetailDataHandler()
+        let detailVM = DetailVM(request: request, dataHandler: dataHandler)
         let detailVC = DetailVC(viewModel: detailVM)
         return detailVC
     }

@@ -77,6 +77,7 @@
 		1E42A9DD283AD74100D7553F /* VisitWebTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9DB283AD74100D7553F /* VisitWebTableViewCell.swift */; };
 		1E42A9DE283AD74100D7553F /* VisitWebTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E42A9DC283AD74100D7553F /* VisitWebTableViewCell.xib */; };
 		1E42A9E1283AE02900D7553F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9E0283AE02800D7553F /* WebViewController.swift */; };
+		1E42A9E3283AF6DE00D7553F /* DetailDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42A9E2283AF6DE00D7553F /* DetailDataHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,6 +150,7 @@
 		1E42A9DB283AD74100D7553F /* VisitWebTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitWebTableViewCell.swift; sourceTree = "<group>"; };
 		1E42A9DC283AD74100D7553F /* VisitWebTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VisitWebTableViewCell.xib; sourceTree = "<group>"; };
 		1E42A9E0283AE02800D7553F /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		1E42A9E2283AF6DE00D7553F /* DetailDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDataHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 			children = (
 				1E42A9492836A96600D7553F /* DetailVC.swift */,
 				1E42A94B2836A97700D7553F /* DetailVM.swift */,
+				1E42A9E2283AF6DE00D7553F /* DetailDataHandler.swift */,
 				1E42A94D2836A98B00D7553F /* DetailViewBuilder.swift */,
 			);
 			path = Detail;
@@ -615,6 +618,7 @@
 				1E42A9A12837036700D7553F /* ParameterEncoding+Protocol.swift in Sources */,
 				1E42A95F2836B08F00D7553F /* TypeAliases.swift in Sources */,
 				1E42A9662836B33900D7553F /* ListCollectionViewCellData.swift in Sources */,
+				1E42A9E3283AF6DE00D7553F /* DetailDataHandler.swift in Sources */,
 				1E42A9AF283703EA00D7553F /* GameListProvider.swift in Sources */,
 				1E42A9A22837036700D7553F /* NetworkError.swift in Sources */,
 			);

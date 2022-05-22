@@ -16,7 +16,7 @@ final class SearchVM {
     var viewState: ViewStateBlock?
     var detailRequestState: DetailRequestStateBlock?
     
-    var latestSearchWord: String?
+    var latestSearchWord: String = ""
     
     init(networkManager: SearchNetworkProtocol = SearchAPI(),
          dataHandler: ListDataHandlerProtocol) {
@@ -33,11 +33,10 @@ final class SearchVM {
     }
     
     func fetchMoreData() {
-        guard let text = latestSearchWord else { return}
-        fetchData(text: text)
+        fetchData(text: latestSearchWord)
     }
     
-    func fetchData(text: String) {
+    func fetchData(text: String = "") {
         viewState?(.loading)
         let request = GameListRequest(page_size: 10,
                                       page: dataHandler.paginationData.page,
@@ -52,6 +51,7 @@ final class SearchVM {
             }
         }
     }
+
     
     func searchGame(with text: String) {
         viewState?(.loading)

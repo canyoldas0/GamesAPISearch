@@ -11,11 +11,14 @@ final class DetailVM {
     
     var requestData: GameDetailRequest
     var networkManager: GameDetailNetworkProtocol
-    
+    private var dataHandler: DetailDataHandlerProtocol
     private var detailResponse: GameDetailResponse?
     
-    init(request: GameDetailRequest, networkManager: GameDetailNetworkProtocol = GameDetailAPI()) {
+    init(request: GameDetailRequest,
+         dataHandler: DetailDataHandlerProtocol,
+         networkManager: GameDetailNetworkProtocol = GameDetailAPI()) {
         self.requestData = request
+        self.dataHandler = dataHandler
         self.networkManager = networkManager
     }
     
@@ -27,43 +30,22 @@ final class DetailVM {
             switch response {
                 
             case .success(let data):
-                completion(strongSelf.getDetailViewData(from: data))
+                self?.detailResponse = data
+                completion(strongSelf.dataHandler.getDetailViewData(from: data))
                 PersistencyDataManager.shared.addToSeenList(id: data.id)
-            case .failure(let error):
-                break
+            case .failure:
+                break // DEBT: ALERT POPUP
             }
         }
     }
     
-    func getDetailViewData(from response: GameDetailResponse) -> DetailViewData {
-        self.detailResponse = response
-        let visitWebButtons = [ButtonRedirectData(buttonTitle: "Visit Reddit",
-                                                  buttonUrl: response.redditURL),
-                                ButtonRedirectData(buttonTitle: "Visit Website",
-                                                   buttonUrl: response.website)
-        ]
-        return DetailViewData(title: response.name,
-                              imageUrl: response.backgroundImage,
-                              description: response.descriptionRaw,
-                              buttons: visitWebButtons,
-                              isAddedFavorites: PersistencyDataManager.shared.checkExists(with: convertDetailToGameData(response: response)))
-    }
-    
+   
     func favoriteButtonClicked(state: Bool) {
         guard let response = self.detailResponse else {return}
         let id = response.id
-        state ? PersistencyDataManager.shared.addFavorite(with: convertDetailToGameData(response: response)): PersistencyDataManager.shared.removeFavourite(with: id)
+        state ? PersistencyDataManager.shared.addFavorite(with: dataHandler.convertDetailToGameData(response: response)): PersistencyDataManager.shared.removeFavourite(with: id)
     }
     
-    private func convertDetailToGameData(response: GameDetailResponse) -> GameData {
-        return GameData(name: response.name,
-                        backgroundImage: response.backgroundImage,
-                        metacritic: response.metacritic,
-                        id: response.id,
-                        tags: response.tags ,
-                        shortScreenshots: response.shortScreenshots,
-                        genres: response.genres)
-    }
 }
 
 
