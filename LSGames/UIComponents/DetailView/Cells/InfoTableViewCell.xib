@@ -48,21 +48,27 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRc-dU-IwN">
-                                <rect key="frame" x="16" y="307" width="343" height="22.5"/>
+                                <rect key="frame" x="16" y="307" width="343" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.19215686274509802" green="0.19215686274509802" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" insetsLayoutMarginsFromSafeArea="NO" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8l7-4Q-b3E">
-                                <rect key="frame" x="16" y="345.5" width="343" height="53.5"/>
+                                <rect key="frame" x="16" y="342.5" width="343" height="58.5"/>
                                 <string key="text">Rockstar Games went bigger, since their previous installment of the series. You get the complicated and realistic world-building from Liberty City of GTA4 in the setting of lively and diverse Los Santos, from an old fan favorite GTA San Andreas. 561 different vehicles (including every transport you can operate)....</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kui-61-GI0">
+                                <rect key="frame" x="67.5" y="417" width="240" height="16"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="Bmc-Ge-YmT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="8l7-4Q-b3E" secondAttribute="bottom" constant="16" id="HxY-Vo-Nam"/>
                             <constraint firstItem="8l7-4Q-b3E" firstAttribute="leading" secondItem="x6K-R5-x8i" secondAttribute="leading" constant="16" id="lcw-aB-sUk"/>
                             <constraint firstItem="xRc-dU-IwN" firstAttribute="leading" secondItem="x6K-R5-x8i" secondAttribute="leading" constant="16" id="myD-Xy-tDr"/>
                             <constraint firstAttribute="trailing" secondItem="8l7-4Q-b3E" secondAttribute="trailing" constant="16" id="rl1-vl-lBU"/>

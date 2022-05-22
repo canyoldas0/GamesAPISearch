@@ -34,7 +34,6 @@ class BaseNetworkManager: NetworkManagerProtocol {
             self.dataTaskHandler(data, urlResponse, error, completion: completion)
             guard let data = data else {return}
             
-            print("data: \(String(decoding: data, as: UTF8.self))")
         }.resume()
         
     }

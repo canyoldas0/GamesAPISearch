@@ -63,7 +63,7 @@ final class SearchVM {
     
     private func handleSuccessResponse(_ response: GameListResponse ) {
         self.dataHandler.paginationData.fetching = false
-        self.dataHandler.setData(with: response.results!)
+        self.dataHandler.setData(with: response.results)
         self.viewState?(.done)
     }
     

@@ -33,7 +33,7 @@ class InfoTableViewCell: UITableViewCell {
         let attributedString = NSMutableAttributedString(string: text)
         let paragraphStyle = NSMutableParagraphStyle()
         
-        paragraphStyle.lineSpacing = 22
+        paragraphStyle.lineSpacing = 15
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range:NSMakeRange(0, attributedString.length))
         descriptionLabel.attributedText = attributedString
     }

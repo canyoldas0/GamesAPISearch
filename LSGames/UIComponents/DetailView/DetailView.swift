@@ -124,7 +124,7 @@ extension DetailView: UITableViewDelegate, UITableViewDataSource {
         case .infoSection:
             let cell = InfoTableViewCell.dequeue(fromTableView: tableView, atIndexPath: indexPath)
             cell.setData(with: getInfoCellData())
-            cell.height = 500
+            cell.isUserInteractionEnabled = false
             return cell
         case .buttonSection:
             guard let cellData = returnData()?.buttons else {return UITableViewCell()}
@@ -145,13 +145,11 @@ extension DetailView: UITableViewDelegate, UITableViewDataSource {
             cell?.startTappedAnimation(with: { [weak self] finish in
                 if finish {
                     self?.delegate?.openWebView(with: url)
+                    cell?.isSelected = false
                 }
             })
         default:
             break
         }
-        print("hello")
-       
-        
     }
 }

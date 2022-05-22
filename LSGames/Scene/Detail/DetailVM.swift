@@ -53,7 +53,6 @@ final class DetailVM {
         guard let response = self.detailResponse else {return}
         let id = response.id
         state ? PersistencyDataManager.shared.addFavorite(with: convertDetailToGameData(response: response)): PersistencyDataManager.shared.removeFavourite(with: id)
-        print("tiklandi state: \(state)")
     }
     
     private func convertDetailToGameData(response: GameDetailResponse) -> GameData {

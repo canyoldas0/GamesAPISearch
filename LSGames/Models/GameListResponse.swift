@@ -10,7 +10,7 @@ import Foundation
 // MARK: - GameListResponse
 struct GameListResponse: Codable {
     let count: Int?
-    let results: [GameData]?
+    let results: [GameData]
 
     enum CodingKeys: String, CodingKey {
         case count, results
