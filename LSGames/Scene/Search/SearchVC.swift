@@ -33,6 +33,7 @@ class SearchVC: CYViewController<SearchVM> {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        listView.reloadCollectionView()
     }
     
     override func configureUI() {
@@ -75,6 +76,7 @@ class SearchVC: CYViewController<SearchVM> {
     @objc func reload(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, text.trimmingCharacters(in: .whitespaces) != "" else {return}
         viewModel.searchGame(with: text)
+        listView.scrollToTop()
     }
 }
 

@@ -23,7 +23,8 @@ class PersistencyDataManager: PersistencyDataProtocol {
 
     
     static let shared = PersistencyDataManager()
-    static let KEY = "FavoriteGames"
+    static let favoriteKEY = "FavoriteGames"
+    static let detailSeenKEY = "SeenGames"
     
     private let queue = DispatchQueue(label: "snycQueue", qos: .default)
     
@@ -58,7 +59,7 @@ class PersistencyDataManager: PersistencyDataProtocol {
     }
     
     private func getList() -> [GameData] {
-        guard let data = UserDefaults.standard.object(forKey: PersistencyDataManager.KEY) as? Data else {
+        guard let data = UserDefaults.standard.object(forKey: PersistencyDataManager.favoriteKEY) as? Data else {
             return []
         }
         if let decodedData = try? decoder.decode(PersistencyContainer.self, from: data) {
@@ -70,9 +71,30 @@ class PersistencyDataManager: PersistencyDataProtocol {
     private func saveList(with data: [GameData]) {
         let data = PersistencyContainer(data: data)
         if let encodedData = try? encoder.encode(data) {
-            UserDefaults.standard.set(encodedData, forKey: PersistencyDataManager.KEY)
+            UserDefaults.standard.set(encodedData, forKey: PersistencyDataManager.favoriteKEY)
         }
     }
     
+    func saveSeenToList(with ids: [Int]) {
+        UserDefaults.standard.set(ids, forKey: PersistencyDataManager.detailSeenKEY)
+    }
     
+    func addToSeenList(id: Int) {
+        queue.sync {
+            var list = getSeenList()
+            list.append(id)
+            saveSeenToList(with: Array(Set(list)))
+        }
+    }
+    
+    func checkIfSeenBefore(with id: Int) -> Bool {
+        queue.sync {
+            return getSeenList().contains(where: { $0 == id })
+        }
+    }
+    
+    private func getSeenList() -> [Int] {
+        guard let data = UserDefaults.standard.array(forKey: PersistencyDataManager.detailSeenKEY) as? [Int] else {return [] }
+        return data
+    }
 }

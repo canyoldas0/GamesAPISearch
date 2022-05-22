@@ -12,9 +12,15 @@ import CYBase
 class DetailVC: CYViewController<DetailVM> {
     
     private var detailView: DetailView!
-    private var buttonData: FavoriteButtonData?
+    
+    private var isAddedFavorites: Bool! {
+        didSet {
+            self.configureFavoriteButtonTitle(state: isAddedFavorites)
+        }
+    }
+    
     lazy var favouriteButton: UIBarButtonItem = {
-        let temp = UIBarButtonItem(title: "Favourite",
+        let temp = UIBarButtonItem(title: "",
                                    style: .plain,
                                    target: self,
                                    action: #selector(favouriteClicked))
@@ -28,24 +34,22 @@ class DetailVC: CYViewController<DetailVM> {
         self.startLoading()
         viewModel.fetchData { [weak self] viewData in
             self?.detailView.setData(data: viewData)
-            self?.configureFavoriteButtonTitle(state: viewData.favoriteButtonData.state)
-            self?.buttonData = viewData.favoriteButtonData
+            self?.isAddedFavorites = viewData.isAddedFavorites
             self?.stopLoading()
         }
     }
     
     private func configureFavoriteButtonTitle(state: Bool) {
-        favouriteButton.title = state ? "Favourited": "Favourite"
+        DispatchQueue.main.async {
+            self.favouriteButton.title = state ? "Favourited": "Add Favourites"
+        }
     }
     
     
     @objc func favouriteClicked() {
-        print("hello")
-        guard let data = buttonData else { return }
-        configureFavoriteButtonTitle(state: data.state)
-        data.state.toggle()
-        print(data.state)
-        data.isFavorited(data.state)
+        isAddedFavorites.toggle()
+        print(isAddedFavorites)
+        viewModel.favoriteButtonClicked(state: isAddedFavorites)
     }
     
     

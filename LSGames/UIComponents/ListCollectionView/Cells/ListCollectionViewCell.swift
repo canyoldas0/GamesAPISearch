@@ -29,6 +29,7 @@ class ListCollectionViewCell: CYCollectionViewCell {
         categoryLabel.text = data.categories
         scoreLabel.text = data.metaScore
         titleLabel.text = data.title
+//        backgroundColor = data.isSeenBefore ? .blue: .red
         layoutIfNeeded()
     }
     

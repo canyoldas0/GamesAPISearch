@@ -29,6 +29,7 @@ class ListView: BaseView {
         return temp
     }()
     
+    
     override func setupViews() {
         super.setupViews()
         addCollectionView()
@@ -56,6 +57,10 @@ class ListView: BaseView {
     
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
         return delegate?.isLoadingCell(for: indexPath.row) ?? false
+    }
+    
+    func scrollToTop() {
+        self.collectionView.setContentOffset(CGPoint(x:0,y:0), animated: true)
     }
     
 }
@@ -90,6 +95,7 @@ extension ListView: UICollectionViewDelegate, UICollectionViewDataSource {
                 self?.delegate?.selectedItem(at: indexPath.row)
             }
         })
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

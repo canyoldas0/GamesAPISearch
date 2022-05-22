@@ -41,7 +41,8 @@ class SearchDataHandler: SearchDataHandlerProtocol {
         return ListCollectionViewCellData(imageUrl: list[index].backgroundImage ?? "",
                                           title: list[index].name ?? "",
                                           metaScore: "\(list[index].metacritic ?? 0)",
-                                          categories: getCategories(at: index))
+                                          categories: getCategories(at: index),
+                                          isSeenBefore: PersistencyDataManager.shared.checkIfSeenBefore(with: getItemId(at: index)))
     }
     
     private func getCategories(at index: Int) -> String {

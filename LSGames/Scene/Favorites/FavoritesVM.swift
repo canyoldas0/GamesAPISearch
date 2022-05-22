@@ -12,6 +12,8 @@ final class FavoritesVM {
     var viewState: ViewStateBlock?
     var networkManager: FavoritesNetworkProtocol
     
+    
+    
     init(networkManager: FavoritesNetworkProtocol = FavoritesAPI()) {
         self.networkManager = networkManager
     }
