@@ -20,10 +20,13 @@ enum AppTheme: CYValueProtocol {
             return .black
         case .scoreRed:
             return UIColor(red: 0.85, green: 0.00, blue: 0.00, alpha: 1.00)
+        case .detailSeen:
+            return UIColor(red: 0.88, green: 0.88, blue: 0.88, alpha: 1.00)
         }
     }
     
     case white
     case black
     case scoreRed
+    case detailSeen
 }

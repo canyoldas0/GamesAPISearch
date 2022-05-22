@@ -62,7 +62,12 @@ extension ListTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .destructive,
                                         title: "Delete") { [weak self] action,view,completion in
-            self?.delegate?.removeSwipedCell(at: indexPath.row)
+            view.startTappedAnimation { [weak self] finish in
+                if finish {
+                    self?.delegate?.removeSwipedCell(at: indexPath.row)
+                }
+            }
+            
         }
         
         action.backgroundColor = AppTheme.scoreRed.value

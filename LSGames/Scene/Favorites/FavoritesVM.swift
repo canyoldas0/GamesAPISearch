@@ -13,7 +13,7 @@ final class FavoritesVM {
     var viewState: ViewStateBlock?
     var networkManager: FavoritesNetworkProtocol
     var dataHandler: ListDataHandlerProtocol
-    
+    var deleteActionState: DeleteActionBlock?
     
     
     init(networkManager: FavoritesNetworkProtocol = FavoritesAPI(), dataHandler: ListDataHandlerProtocol) {
@@ -25,15 +25,25 @@ final class FavoritesVM {
         viewState = completion
     }
     
+    func listenDeleteActionState(with completion: @escaping DeleteActionBlock) {
+        deleteActionState = completion
+    }
+    
     func fetchData() {
         viewState?(.loading)
         
         networkManager.getFavoriteGames { [weak self] response in
             
             print(response.count)
+            self?.dataHandler.clearList()
             self?.dataHandler.setData(with: response)
             self?.viewState?(.done)
         }
+    }
+    
+    func deleteItem(by id: Int) {
+        PersistencyDataManager.shared.removeFavourite(with: id)
+        fetchData()
     }
 }
 
@@ -52,7 +62,7 @@ extension FavoritesVM: ItemProviderProtocol {
     }
     
     func removeSwipedCell(at index: Int) {
-        
-        PersistencyDataManager.shared.removeFavourite(with: dataHandler.getElement(at: index))
+        deleteActionState?(dataHandler.getItemName(at: index),
+                           dataHandler.getItemId(at: index))
     }
 }

@@ -11,7 +11,7 @@ protocol PersistencyDataProtocol {
     
     func getFavoriteItems(with completion: @escaping ([GameData]) -> Void)
     func addFavorite(with data: GameData)
-    func removeFavourite(with data: GameData)
+    func removeFavourite(with id: Int )
     func checkExists(with data: GameData) -> Bool
 }
 
@@ -46,9 +46,9 @@ class PersistencyDataManager: PersistencyDataProtocol {
         }
     }
     
-    func removeFavourite(with data: GameData) {
+    func removeFavourite(with id: Int) {
         queue.sync {
-            saveList(with: getList().filter({ $0.id != data.id }))
+            saveList(with: getList().filter({ $0.id != id }))
         }
     }
     

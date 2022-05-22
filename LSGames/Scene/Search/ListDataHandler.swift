@@ -13,13 +13,14 @@ protocol ListDataHandlerProtocol {
     var paginationData: PaginationInfo { get set }
     
     func getViewData(at index: Int) -> CYDataProtocol?
-    func getElement(at index: Int) - > GameData
+    func getElement(at index: Int) -> GameData
     func getNumberOfSection() -> Int
     func getNumberOfItem(in section: Int) -> Int
     func getItemId(at index: Int) -> Int
     func getCount() -> Int
     func setData(with response: [GameData])
-    func clearList() 
+    func clearList()
+    func getItemName(at index:Int) -> String
     
 }
 
@@ -35,6 +36,10 @@ class ListDataHandler: ListDataHandlerProtocol {
     
     func clearList() {
         self.list = []
+    }
+    
+    func getItemName(at index: Int) -> String {
+        return list[index].name ?? ""
     }
     
     func getElement(at index: Int) -> GameData {

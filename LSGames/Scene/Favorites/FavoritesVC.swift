@@ -54,5 +54,22 @@ class FavoritesVC: CYViewController<FavoritesVM> {
                 break // Bottomsheet error handling?
             }
         }
+        
+        viewModel.listenDeleteActionState { [weak self] gameName, id in
+            self?.throwDeleteActionAlert(for: gameName, id: id)
+        }
+    }
+    
+    private func throwDeleteActionAlert(for name: String, id: Int) {
+        let alert = UIAlertController(title: "Remove from favorites",
+                                      message: "Are you sure about removing \(name) from favorites?",
+                                      preferredStyle: .alert)
+        let yesButton = UIAlertAction(title: "Yes", style: .default) { [weak self] action in
+            self?.viewModel.deleteItem(by: id)
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        alert.addAction(yesButton)
+        alert.addAction(cancelButton)
+        self.present(alert, animated: true)
     }
 }

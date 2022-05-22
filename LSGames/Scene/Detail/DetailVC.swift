@@ -31,6 +31,11 @@ class DetailVC: CYViewController<DetailVM> {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = favouriteButton
         navigationController?.navigationBar.prefersLargeTitles = false
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.startLoading()
         viewModel.fetchData { [weak self] viewData in
             self?.detailView.setData(data: viewData)

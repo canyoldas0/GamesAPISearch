@@ -46,9 +46,8 @@ final class DetailVM {
     
     func favoriteButtonClicked(state: Bool) {
         guard let response = self.detailResponse else {return}
-        let item = self.convertDetailToGameData(response: response)
-        
-        state ? PersistencyDataManager.shared.addFavorite(with: item): PersistencyDataManager.shared.removeFavourite(with: item)
+        let id = response.id
+        state ? PersistencyDataManager.shared.addFavorite(with: convertDetailToGameData(response: response)): PersistencyDataManager.shared.removeFavourite(with: id)
         print("tiklandi state: \(state)")
     }
     
