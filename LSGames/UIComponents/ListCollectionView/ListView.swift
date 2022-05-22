@@ -47,8 +47,6 @@ class ListView: BaseView {
         ])
     }
     
-    // TODO: Not sure If this will work, Check later on.
-    // @MainActor
     func reloadCollectionView() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()

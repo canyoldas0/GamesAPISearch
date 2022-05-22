@@ -22,6 +22,7 @@ final class SearchVM {
          dataHandler: ListDataHandlerProtocol) {
         self.networkManager = networkManager
         self.dataHandler = dataHandler
+    
     }
     
     func listenViewState(with completion: @escaping ViewStateBlock) {

@@ -73,7 +73,7 @@ class FavoritesVC: CYViewController<FavoritesVM> {
         let yesButton = UIAlertAction(title: "Yes", style: .default) { [weak self] action in
             self?.viewModel.deleteItem(by: id)
         }
-        let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil) 
         alert.addAction(yesButton)
         alert.addAction(cancelButton)
         self.present(alert, animated: true)
