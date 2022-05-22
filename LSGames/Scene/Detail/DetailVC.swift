@@ -53,7 +53,6 @@ class DetailVC: CYViewController<DetailVM> {
     
     @objc func favouriteClicked() {
         isAddedFavorites.toggle()
-        print(isAddedFavorites)
         viewModel.favoriteButtonClicked(state: isAddedFavorites)
     }
     
@@ -72,11 +71,22 @@ class DetailVC: CYViewController<DetailVM> {
         ])
     }
     
+    private func showPopup(title: String) {
+        let alert = UIAlertController(title: "Warning", message: title, preferredStyle: .alert)
+        let cancelButton = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(cancelButton)
+        self.present(alert, animated: true)
+    }
+    
 }
 
 extension DetailVC: ButtonRedirectCellProtocol {
     
     func openWebView(with url: String) {
+        guard url != "" else {
+            showPopup(title: "Unavailable URL.")
+            return
+        }
         let webVC = WebViewController(webUrl: url)
         self.present(webVC, animated: true)
     }

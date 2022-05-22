@@ -20,7 +20,7 @@ class ListTableView: BaseView {
         temp.separatorStyle = .none
         temp.estimatedRowHeight = UITableView.automaticDimension
         temp.rowHeight = UITableView.automaticDimension
-        temp.allowsSelection = false
+        temp.allowsSelection = true
         temp.registerNib(withIdentifier: SwipeTableViewCell.identifier)
         return temp
     }()
@@ -57,6 +57,15 @@ extension ListTableView: UITableViewDelegate, UITableViewDataSource {
         let cell = SwipeTableViewCell.dequeue(fromTableView: tableView, atIndexPath: indexPath)
         cell.setData(with: data)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.startTappedAnimation(with: { [weak self] finish in
+            if finish {
+                self?.delegate?.selectedItem(at: indexPath.row)
+            }
+        })
     }
     
     // Swipe to Delete Action

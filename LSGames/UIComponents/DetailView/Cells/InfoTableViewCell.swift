@@ -25,8 +25,17 @@ class InfoTableViewCell: UITableViewCell {
         guard let data = data as? InfoTableViewCellData else {return}
         imageContainer.kf.setImage(with: URL(string: data.imageUrl))
         titleLabel.text = data.title
-        descriptionLabel.text = data.description
+        setupDescriptionLabel(with: data.description)
         layoutIfNeeded()
+    }
+    
+    private func setupDescriptionLabel(with text: String) {
+        let attributedString = NSMutableAttributedString(string: text)
+        let paragraphStyle = NSMutableParagraphStyle()
+        
+        paragraphStyle.lineSpacing = 22
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range:NSMakeRange(0, attributedString.length))
+        descriptionLabel.attributedText = attributedString
     }
     
 }

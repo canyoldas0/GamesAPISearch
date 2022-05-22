@@ -14,6 +14,11 @@ final class FavoritesVM {
     var networkManager: FavoritesNetworkProtocol
     var dataHandler: ListDataHandlerProtocol
     var deleteActionState: DeleteActionBlock?
+    var detailRequestState: DetailRequestStateBlock?
+
+    func listenRequestState(with completion: @escaping DetailRequestStateBlock) {
+        detailRequestState = completion
+    }
     
     
     init(networkManager: FavoritesNetworkProtocol = FavoritesAPI(), dataHandler: ListDataHandlerProtocol) {
@@ -64,5 +69,9 @@ extension FavoritesVM: ItemProviderProtocol {
     func removeSwipedCell(at index: Int) {
         deleteActionState?(dataHandler.getItemName(at: index),
                            dataHandler.getItemId(at: index))
+    }
+    
+    func selectedItem(at index: Int) {
+        detailRequestState?(GameDetailRequest(id: dataHandler.getItemId(at: index)))
     }
 }

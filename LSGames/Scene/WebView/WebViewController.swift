@@ -29,9 +29,10 @@ class WebViewController: UIViewController, WKUIDelegate {
             return
         }
         
-        let myURL = URL(string: webUrl)
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
+        if let myURL = URL(string: webUrl) {
+            let myRequest = URLRequest(url: myURL)
+            webView.load(myRequest)
+        }
     }
     
     init(webUrl: String) {

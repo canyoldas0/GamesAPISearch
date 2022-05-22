@@ -54,7 +54,7 @@ class DetailView: CYBaseView<DetailViewData> {
         temp.delegate = self
         temp.dataSource = self
         temp.alwaysBounceVertical = false
-        temp.allowsSelection = false
+        temp.allowsSelection = true
         temp.showsVerticalScrollIndicator = false
         temp.estimatedRowHeight = 500
         temp.rowHeight = UITableView.automaticDimension
@@ -129,7 +129,6 @@ extension DetailView: UITableViewDelegate, UITableViewDataSource {
         case .buttonSection:
             guard let cellData = returnData()?.buttons else {return UITableViewCell()}
             let cell = UITableViewCell()
-            cell.isUserInteractionEnabled = true
             cell.textLabel?.text = cellData[indexPath.row].buttonTitle
             return cell
         }
@@ -138,11 +137,16 @@ extension DetailView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let section = tableViewSections[indexPath.section]
+        let cell = tableView.cellForRow(at: indexPath)
         guard let url = returnData()?.buttons[indexPath.row].buttonUrl else {return }
         
         switch section {
         case .buttonSection:
-            self.delegate?.openWebView(with: url)
+            cell?.startTappedAnimation(with: { [weak self] finish in
+                if finish {
+                    self?.delegate?.openWebView(with: url)
+                }
+            })
         default:
             break
         }

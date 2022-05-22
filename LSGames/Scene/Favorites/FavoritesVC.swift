@@ -20,6 +20,7 @@ class FavoritesVC: CYViewController<FavoritesVM> {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
         viewModel.fetchData()
     }
     
@@ -58,8 +59,13 @@ class FavoritesVC: CYViewController<FavoritesVM> {
         viewModel.listenDeleteActionState { [weak self] gameName, id in
             self?.throwDeleteActionAlert(for: gameName, id: id)
         }
+        
+        viewModel.listenRequestState { [weak self] request in
+            let detailVC = DetailViewBuilder.build(with: request)
+            self?.navigationController?.pushViewController(detailVC, animated: false)
+        }
     }
-    
+        
     private func throwDeleteActionAlert(for name: String, id: Int) {
         let alert = UIAlertController(title: "Remove from favorites",
                                       message: "Are you sure about removing \(name) from favorites?",
