@@ -46,7 +46,7 @@ class DetailVC: CYViewController<DetailVM> {
     
     private func configureFavoriteButtonTitle(state: Bool) {
         DispatchQueue.main.async {
-            self.favouriteButton.title = state ? "Favourited": "Add Favourites"
+            self.favouriteButton.title = state ? "Favourited": "Favourite"
         }
     }
     

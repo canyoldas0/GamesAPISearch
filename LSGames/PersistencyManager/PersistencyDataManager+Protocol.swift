@@ -93,6 +93,10 @@ class PersistencyDataManager: PersistencyDataProtocol {
         }
     }
     
+    func clearSeenList() {
+        UserDefaults.standard.removeObject(forKey: PersistencyDataManager.detailSeenKEY)
+    }
+    
     private func getSeenList() -> [Int] {
         guard let data = UserDefaults.standard.array(forKey: PersistencyDataManager.detailSeenKEY) as? [Int] else {return [] }
         return data

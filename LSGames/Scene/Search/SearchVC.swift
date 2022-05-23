@@ -18,12 +18,29 @@ class SearchVC: CYViewController<SearchVM> {
         return temp
     }()
     
+    lazy var clearSeenButton: UIButton = {
+        let temp = UIButton()
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.setTitle("Clean Seen Games", for: .normal)
+        temp.setTitleColor(AppTheme.black.value, for: .normal)
+        temp.titleLabel?.font = .systemFont(ofSize: 14)
+        temp.addTarget(self, action: #selector(clearSeenClicked), for: .touchUpInside)
+        return temp
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        addClearButton()
         setSearchBar()
         listenViewModel()
         viewModel.fetchData()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        hideClearSeenButton(state: true)
+    }
+    
     
     private func setSearchBar() {
         searchController.hidesNavigationBarDuringPresentation = true
@@ -31,10 +48,26 @@ class SearchVC: CYViewController<SearchVM> {
         navigationItem.searchController = searchController
     }
     
+    private func addClearButton() {
+        guard let navigationBar = self.navigationController?.navigationBar else { return }
+        navigationBar.addSubview(clearSeenButton)
+        
+        NSLayoutConstraint.activate([
+            clearSeenButton.rightAnchor.constraint(equalTo: navigationBar.rightAnchor, constant: -20),
+            clearSeenButton.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: -60),
+          ])
+    }
+    
+    private func hideClearSeenButton(state: Bool) {
+        clearSeenButton.isHidden = state
+        clearSeenButton.isUserInteractionEnabled = !state
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
         listView.reloadCollectionView()
+        hideClearSeenButton(state: false)
     }
     
     override func configureUI() {
@@ -51,6 +84,12 @@ class SearchVC: CYViewController<SearchVM> {
             listView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             listView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    @objc func clearSeenClicked() {
+        print("clicked")
+        PersistencyDataManager.shared.clearSeenList()
+        self.listView.reloadCollectionView()
     }
     
     // MARK: ViewModel Subscriptions
