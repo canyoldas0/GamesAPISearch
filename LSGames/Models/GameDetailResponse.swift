@@ -8,15 +8,15 @@
 import Foundation
 
 struct GameDetailResponse: Codable {
-    let id: Int
-    let name, nameOriginal, gameDetailResponseDescription: String
-    let backgroundImage, backgroundImageAdditional: String
-    let website: String
-    let redditURL: String
-    let descriptionRaw: String
+    let id: Int?
+    let name, nameOriginal, gameDetailResponseDescription: String?
+    let backgroundImage, backgroundImageAdditional: String?
+    let website: String?
+    let redditURL: String?
+    let descriptionRaw: String?
     let metacritic: Int?
-    let genres: [Genre]
-    let tags: [Tag]
+    let genres: [Genre]?
+    let tags: [Tag]?
     let shortScreenshots: [ShortScreenshot]?
 
     enum CodingKeys: String, CodingKey {

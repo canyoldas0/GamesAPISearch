@@ -30,7 +30,13 @@ class InfoTableViewCell: UITableViewCell {
     }
     
     private func setupDescriptionLabel(with text: String) {
-        let attributedString = NSMutableAttributedString(string: text)
+        var stringTemp = "No description available for now."
+        if text != "" {
+            stringTemp = text
+        }
+        
+        
+        let attributedString = NSMutableAttributedString(string: stringTemp)
         let paragraphStyle = NSMutableParagraphStyle()
         
         paragraphStyle.lineSpacing = 15

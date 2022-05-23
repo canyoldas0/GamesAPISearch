@@ -32,7 +32,7 @@ final class DetailVM {
             case .success(let data):
                 self?.detailResponse = data
                 completion(strongSelf.dataHandler.getDetailViewData(from: data))
-                PersistencyDataManager.shared.addToSeenList(id: data.id)
+                PersistencyDataManager.shared.addToSeenList(id: data.id!)
             case .failure:
                 break // DEBT: ALERT POPUP
             }
@@ -43,7 +43,7 @@ final class DetailVM {
     func favoriteButtonClicked(state: Bool) {
         guard let response = self.detailResponse else {return}
         let id = response.id
-        state ? PersistencyDataManager.shared.addFavorite(with: dataHandler.convertDetailToGameData(response: response)): PersistencyDataManager.shared.removeFavourite(with: id)
+        state ? PersistencyDataManager.shared.addFavorite(with: dataHandler.convertDetailToGameData(response: response)): PersistencyDataManager.shared.removeFavourite(with: id!)
     }
     
 }

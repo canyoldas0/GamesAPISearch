@@ -18,13 +18,13 @@ class DetailDataHandler: DetailDataHandlerProtocol {
     
     func getDetailViewData(from response: GameDetailResponse) -> DetailViewData {
         let visitWebButtons = [ButtonRedirectData(buttonTitle: "Visit Reddit",
-                                                  buttonUrl: response.redditURL),
+                                                  buttonUrl: response.redditURL ?? ""),
                                 ButtonRedirectData(buttonTitle: "Visit Website",
-                                                   buttonUrl: response.website)
+                                                   buttonUrl: response.website ?? "")
         ]
-        return DetailViewData(title: response.name,
-                              imageUrl: response.backgroundImage,
-                              description: response.descriptionRaw,
+        return DetailViewData(title: response.name ?? "",
+                              imageUrl: response.backgroundImage ?? "",
+                              description: response.descriptionRaw ?? "",
                               buttons: visitWebButtons,
                               isAddedFavorites: PersistencyDataManager.shared.checkExists(with: convertDetailToGameData(response: response)))
     }
