@@ -14,12 +14,6 @@ class InfoTableViewCell: UITableViewCell {
     @IBOutlet weak var imageContainer: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
         
     func setData(with data: CYDataProtocol?) {
         guard let data = data as? InfoTableViewCellData else {return}
@@ -34,7 +28,6 @@ class InfoTableViewCell: UITableViewCell {
         if text != "" {
             stringTemp = text
         }
-        
         
         let attributedString = NSMutableAttributedString(string: stringTemp)
         let paragraphStyle = NSMutableParagraphStyle()

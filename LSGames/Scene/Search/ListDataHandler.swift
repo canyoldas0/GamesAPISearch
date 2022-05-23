@@ -46,7 +46,6 @@ class ListDataHandler: ListDataHandlerProtocol {
         return list[index]
     }
     
-    
     func getViewData(at index: Int) -> CYDataProtocol? {
         return ListCollectionViewCellData(imageUrl: list[index].backgroundImage ?? "",
                                           title: list[index].name ?? "",

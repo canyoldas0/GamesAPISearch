@@ -22,9 +22,9 @@ final class SearchVM {
          dataHandler: ListDataHandlerProtocol) {
         self.networkManager = networkManager
         self.dataHandler = dataHandler
-    
     }
-    
+   
+    // MARK: ViewController Listeners
     func listenViewState(with completion: @escaping ViewStateBlock) {
         viewState = completion
     }
@@ -33,6 +33,7 @@ final class SearchVM {
         detailRequestState = completion
     }
     
+    // MARK: Fetch Data Operations
     func fetchMoreData() {
         fetchData(text: latestSearchWord)
     }
@@ -53,7 +54,6 @@ final class SearchVM {
         }
     }
 
-    
     func searchGame(with text: String) {
         viewState?(.loading)
         dataHandler.clearList()
@@ -61,7 +61,7 @@ final class SearchVM {
         fetchData(text: text)
     }
     
-    
+    // Handling success data response.
     private func handleSuccessResponse(_ response: GameListResponse ) {
         self.dataHandler.paginationData.fetching = false
         self.dataHandler.setData(with: response.results)
@@ -70,6 +70,7 @@ final class SearchVM {
     
 }
 
+// MARK: Item Provider Protocol
 extension SearchVM: ItemProviderProtocol {
     
     func askNumberOfSection() -> Int {

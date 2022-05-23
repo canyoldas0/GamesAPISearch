@@ -53,6 +53,7 @@ class SearchVC: CYViewController<SearchVM> {
         ])
     }
     
+    // MARK: ViewModel Subscriptions
     private func listenViewModel() {
         
         viewModel.listenViewState { [weak self] state in
@@ -91,6 +92,4 @@ extension SearchVC: UISearchBarDelegate {
                 perform(#selector(self.reload(_:)), with: searchController.searchBar, afterDelay: 0.75)
         }
     }
-    
-    
 }

@@ -12,14 +12,11 @@ protocol FavoritesNetworkProtocol {
     
     func getFavoriteGames(completion: @escaping FavoriteGameListResponse)
     
-    
 }
 
 class FavoritesAPI: FavoritesNetworkProtocol {
     
-    
     func getFavoriteGames(completion: @escaping FavoriteGameListResponse) {
-        
         PersistencyDataManager.shared.getFavoriteItems(with: completion)
     }
 }

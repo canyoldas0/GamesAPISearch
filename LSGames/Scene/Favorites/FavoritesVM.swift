@@ -15,11 +15,11 @@ final class FavoritesVM {
     var dataHandler: ListDataHandlerProtocol
     var deleteActionState: DeleteActionBlock?
     var detailRequestState: DetailRequestStateBlock?
-
+    
+    // MARK: ViewController Listeners
     func listenRequestState(with completion: @escaping DetailRequestStateBlock) {
         detailRequestState = completion
     }
-    
     
     init(networkManager: FavoritesNetworkProtocol = FavoritesAPI(), dataHandler: ListDataHandlerProtocol) {
         self.networkManager = networkManager
@@ -34,6 +34,7 @@ final class FavoritesVM {
         deleteActionState = completion
     }
     
+    // MARK: Data Request Operations
     func fetchData() {
         viewState?(.loading)
         
@@ -51,6 +52,7 @@ final class FavoritesVM {
     }
 }
 
+// MARK: Item Provider Protocol
 extension FavoritesVM: ItemProviderProtocol {
     
     func askNumberOfSection() -> Int {

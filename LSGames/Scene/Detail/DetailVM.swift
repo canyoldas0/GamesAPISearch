@@ -22,7 +22,6 @@ final class DetailVM {
         self.networkManager = networkManager
     }
     
-    
     func fetchData(with completion: @escaping (DetailViewData) -> Void) {
         
         networkManager.getDetailData(request: requestData) { [weak self] response in
@@ -34,11 +33,12 @@ final class DetailVM {
                 completion(strongSelf.dataHandler.getDetailViewData(from: data))
                 PersistencyDataManager.shared.addToSeenList(id: data.id!)
             case .failure:
-                break // DEBT: ALERT POPUP
+                 // TODO: ALERT POPUP
+                // viewState?(.failure(errorModel)
+                break
             }
         }
     }
-    
    
     func favoriteButtonClicked(state: Bool) {
         guard let response = self.detailResponse else {return}
