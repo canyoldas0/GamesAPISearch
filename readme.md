@@ -30,6 +30,7 @@ I preferred MVVM pattern for this project. MVVM is very useful pattern because i
 - There are some technical debts which couldn't be covered due to shortage of time.
 <br>
 <li> "Read More" button can be added to description label on detail page, for expanding the label.
+<li> Some kind of network package is used rather than simply URLSession or Alomofire. Because, I think that there will be always a customized network package in real life projects, this one I used is something I'm familiar with. 
 <li> I added another scheme and configuration just like asked in bonus points, however I haven't connected it to network manager.
 <h4> 6. What are the things you think are missing or open in this assignment? </h4>
 - I think that this case study covers lots of topics for iOS development and quite educational. The only thing missing is maybe it would be better to have UI designs for smaller screen sizes but overall it was fun.
