@@ -32,8 +32,6 @@ class BaseNetworkManager: NetworkManagerProtocol {
         
         session.dataTask(with: urlRequest) { (data, urlResponse, error) in
             self.dataTaskHandler(data, urlResponse, error, completion: completion)
-            guard let data = data else {return}
-            
         }.resume()
         
     }
