@@ -50,7 +50,7 @@ class ListDataHandler: ListDataHandlerProtocol {
     func getViewData(at index: Int) -> CYDataProtocol? {
         return ListCollectionViewCellData(imageUrl: list[index].backgroundImage ?? "",
                                           title: list[index].name ?? "",
-                                          metaScore: "\(list[index].metacritic ?? 0)",
+                                          metaScore: (list[index].metacritic ?? 0),
                                           categories: getCategories(at: index),
                                           isSeenBefore: PersistencyDataManager.shared.checkIfSeenBefore(with: getItemId(at: index)))
     }
@@ -59,7 +59,7 @@ class ListDataHandler: ListDataHandlerProtocol {
         let categoryData = list[index].genres
         
         // Getting String Array from Genre Array and formatting it to single string
-        let result = categoryData?.compactMap({ $0.name}).joined(separator: ",").capitalizingFirstLetter()
+        let result = categoryData?.compactMap({ $0.name}).joined(separator: ", ").capitalizingFirstLetter()
         return result ?? ""
     }
     

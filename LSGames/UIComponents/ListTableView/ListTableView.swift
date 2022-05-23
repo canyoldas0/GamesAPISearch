@@ -18,8 +18,7 @@ class ListTableView: BaseView {
         temp.delegate = self
         temp.dataSource = self
         temp.separatorStyle = .none
-        temp.estimatedRowHeight = UITableView.automaticDimension
-        temp.rowHeight = UITableView.automaticDimension
+        temp.rowHeight = 136
         temp.allowsSelection = true
         temp.registerNib(withIdentifier: SwipeTableViewCell.identifier)
         return temp

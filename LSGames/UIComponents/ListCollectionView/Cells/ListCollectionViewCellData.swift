@@ -12,13 +12,13 @@ class ListCollectionViewCellData: CYDataProtocol {
     
     private(set) var imageUrl: String
     private(set) var title: String
-    private(set) var metaScore: String
+    private(set) var metaScore: Int
     private(set) var categories: String
     private(set) var isSeenBefore: Bool
     
     init(imageUrl: String,
          title: String,
-         metaScore: String,
+         metaScore: Int,
          categories: String,
          isSeenBefore: Bool) {
         self.imageUrl = imageUrl

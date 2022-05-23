@@ -85,10 +85,11 @@ class SearchVC: CYViewController<SearchVM> {
 extension SearchVC: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector:
-        #selector(self.reload(_:)), object: searchController.searchBar)
-            perform(#selector(self.reload(_:)), with: searchController.searchBar, afterDelay: 0.75)
+        if searchText.count >= 3 {
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector:
+            #selector(self.reload(_:)), object: searchController.searchBar)
+                perform(#selector(self.reload(_:)), with: searchController.searchBar, afterDelay: 0.75)
+        }
     }
     
     

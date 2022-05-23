@@ -27,7 +27,7 @@ class ListCollectionViewCell: CYCollectionViewCell {
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: URL(string: data.imageUrl))
         categoryLabel.text = data.categories
-        scoreLabel.text = data.metaScore
+        scoreLabel.text =  (data.metaScore != 0) ? "\(data.metaScore)": "No score"
         titleLabel.text = data.title
         backgroundColor = data.isSeenBefore ? AppTheme.detailSeen.value: AppTheme.white.value
         layoutIfNeeded()
